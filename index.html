@@ -69,7 +69,7 @@
         .t-survey  { background-image:url('https://images.unsplash.com/photo-1571055107559-3e67626fa8be?auto=format&fit=crop&w=900&q=70'); }
         .t-article { background-image:url('https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=900&q=70'); }
         .t-book    { background-image:url('https://images.unsplash.com/photo-1591857177580-dc82b9ac4e1e?auto=format&fit=crop&w=900&q=70'); }
-        .t-lecture { background-image:url('https://images.unsplash.com/photo-1598902108854-10e335adac99?auto=format&fit=crop&w=900&q=70'); }
+        .t-lecture { background-image:url('images/style-japanese.jpg'); }
         .t-course  { background-image:url('https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&w=900&q=70'); }
 
         /* PROJECT GALLERY */
@@ -126,12 +126,24 @@
         .topic .tl { position:relative; z-index:1; padding:20px; }
         .topic .tl strong { display:block; font-family:'Frank Ruhl Libre',serif; font-size:1.35em; font-weight:500; }
         .topic .tl em { font-style:normal; font-size:.9em; opacity:.88; }
-        .g1{background-image:url('https://images.unsplash.com/photo-1598902108854-10e335adac99?auto=format&fit=crop&w=700&q=65');}
-        .g2{background-image:url('https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=700&q=65');}
-        .g3{background-image:url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=700&q=65');}
-        .g4{background-image:url('https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=700&q=65');}
-        .g5{background-image:linear-gradient(135deg,#1f3d12,#3b6d11);}
-        .g6{background-image:linear-gradient(135deg,#4a7c23,#8aa84a);}
+        .g1{background-image:url('images/style-japanese.jpg');}
+        .g2{background-image:url('images/style-mediterranean.jpg');}
+        .g3{background-image:url('images/style-islamic.jpg');}
+        .g4{background-image:url('images/style-modern.jpg');}
+        .g5{background-image:url('images/style-classical.jpg');}
+        .g6{background-image:url('images/style-latin.jpg');}
+
+        /* FEATURED LECTURE + LECTURE LIST */
+        .feat { position:relative; border-radius:16px; overflow:hidden; max-width:1120px; margin:0 auto 44px; min-height:300px; display:flex; align-items:center; color:#fff; background-color:var(--green-dark); background-size:cover; background-position:center; background-image:linear-gradient(90deg,rgba(20,40,12,.86),rgba(20,40,12,.4)), url('images/style-islamic.jpg'); }
+        .feat .fc { padding:48px 6vw; max-width:640px; }
+        .feat .fk { color:var(--green-light); letter-spacing:3px; font-weight:600; font-size:.85em; margin-bottom:12px; }
+        .feat h3 { font-size:2em; line-height:1.25; margin-bottom:14px; }
+        .feat p { font-weight:300; opacity:.95; }
+        .lec-list { display:grid; grid-template-columns:repeat(auto-fit,minmax(270px,1fr)); gap:14px; max-width:1120px; margin:44px auto 0; }
+        .lec { background:#fff; border:1px solid rgba(0,0,0,.07); border-radius:10px; padding:18px 22px; transition:transform .3s,box-shadow .3s; }
+        .lec:hover { transform:translateY(-3px); box-shadow:0 8px 22px rgba(0,0,0,.07); }
+        .lec strong { display:block; color:var(--green-dark); font-family:'Frank Ruhl Libre',serif; font-size:1.18em; margin-bottom:4px; }
+        .lec span { color:var(--muted); font-size:.9em; }
 
         /* COURSES (SYLLABUS) */
         .courses { background:var(--green-dark); color:#fff; }
@@ -192,9 +204,9 @@
     <!-- HERO -->
     <header class="hero" id="hero">
         <div class="hero-content">
-            <div class="eyebrow">תכנון · הוראה · כתיבה</div>
+            <div class="eyebrow">תכנון · ייעוץ · סקרי עצים · הוראה · כתיבה</div>
             <h1>הדס צוק</h1>
-            <p>שנים של עשייה בעולם הגן — תכנון גנים, סקרי עצים, הרצאות, קורסים וכתיבה מקצועית. כאן מתרכזת כל העבודה במקום אחד.</p>
+            <p>שנים של עשייה — תכנון גנים, סקרי עצים, הרצאות, קורסים וכתיבה מקצועית. כאן מתרכזת כל העבודה במקום אחד.</p>
             <a href="#work" class="btn">לעבודות שלי</a>
         </div>
         <div class="scroll-hint">⌄</div>
@@ -213,7 +225,7 @@
             <a class="nav-tile t-survey" href="#surveys"><div class="cap"><strong>סקרי עצים</strong><span>סקרים מקצועיים לרישוי</span><div class="go">לפרטים ←</div></div></a>
             <a class="nav-tile t-article" href="#articles"><div class="cap"><strong>מאמרים</strong><span>כתיבה בעולם הגן</span><div class="go">לקריאה ←</div></div></a>
             <a class="nav-tile t-book" href="#book"><div class="cap"><strong>טקסט לספר</strong><span>כתיבה מקצועית</span><div class="go">לפרטים ←</div></div></a>
-            <a class="nav-tile t-lecture" href="#lectures"><div class="cap"><strong>הרצאות</strong><span>סילבוס סגנונות גנים</span><div class="go">לתוכן ←</div></div></a>
+            <a class="nav-tile t-lecture" href="#lectures"><div class="cap"><strong>הרצאות</strong><span>מסע בין סגנונות גנים</span><div class="go">לתוכן ←</div></div></a>
             <a class="nav-tile t-course" href="#courses"><div class="cap"><strong>קורסים</strong><span>סילבוס קורסים שהעברתי</span><div class="go">לתוכן ←</div></div></a>
         </div>
     </section>
@@ -287,17 +299,35 @@
     <!-- LECTURES -->
     <section class="section" id="lectures">
         <div class="section-head">
-            <div class="kicker">הרצאות · סילבוס</div>
-            <h2>סגנונות גנים מרחבי העולם</h2>
-            <p>נושאי ההרצאות שלי — מסע בין תרבויות הגן: היסטוריה, פילוסופיה ועיצוב. אלה נושאים לדוגמה, וניתן להתאים הרצאה לקהל.</p>
+            <div class="kicker">הרצאות</div>
+            <h2>מסע בין סגנונות גנים</h2>
+            <p>הרצאות מרתקות על עולם הגן — היסטוריה, סגנונות ומקורות השראה. מותאמות לקהלים מגוונים: מועדונים, מוסדות, ימי עיון וקבוצות.</p>
         </div>
+
+        <div class="feat">
+            <div class="fc">
+                <div class="fk">הרצאת הדגל</div>
+                <h3>מגן העדן לגן המודרני</h3>
+                <p>מסע מרתק בין סגנונות גנים מרחבי העולם — מגני העדן הקדומים, דרך הגן המוסלמי, האנגלי והים־תיכוני, ועד הגן המודרני. סיפורם של הגנים שעיצבו את התרבות האנושית.</p>
+            </div>
+        </div>
+
         <div class="topic-grid">
             <div class="topic g1"><div class="tl"><strong>הגן היפני</strong><em>שלווה, סמליות ואיזון</em></div></div>
-            <div class="topic g2"><div class="tl"><strong>הגן האנגלי</strong><em>נוף רומנטי וגני קוטג'</em></div></div>
-            <div class="topic g3"><div class="tl"><strong>הגן הים־תיכוני</strong><em>אקלים, ניחוח וצבע</em></div></div>
-            <div class="topic g4"><div class="tl"><strong>הגן הצרפתי</strong><em>סימטריה ופאר פורמלי</em></div></div>
-            <div class="topic g5"><div class="tl"><strong>הגן האסלאמי</strong><em>מים, גאומטריה וגן עדן</em></div></div>
-            <div class="topic g6"><div class="tl"><strong>הגן המדברי</strong><em>צמחים חסכוניים ונוף יבש</em></div></div>
+            <div class="topic g2"><div class="tl"><strong>הגן הים־תיכוני</strong><em>אקלים, ניחוח וצבע</em></div></div>
+            <div class="topic g3"><div class="tl"><strong>הגן המוסלמי</strong><em>מים, גאומטריה וגן עדן</em></div></div>
+            <div class="topic g4"><div class="tl"><strong>הגן המודרני</strong><em>קווים נקיים וצבע נועז</em></div></div>
+            <div class="topic g5"><div class="tl"><strong>הסגנון הקלאסי</strong><em>סימטריה, אבן ומים</em></div></div>
+            <div class="topic g6"><div class="tl"><strong>הסגנון הלטיני</strong><em>טרקוטה, צבע וחום</em></div></div>
+        </div>
+
+        <div class="lec-list">
+            <div class="lec"><strong>אביב בגן הישראלי</strong><span>פריחת האביב והנוף המקומי</span></div>
+            <div class="lec"><strong>מגמות עכשוויות בגינון</strong><span>כיוונים וטרנדים בעיצוב הגן</span></div>
+            <div class="lec"><strong>מקורות השראה לגן המודרני</strong><span>סגנון מודרני ופוסט־מודרני</span></div>
+            <div class="lec"><strong>פסטיבל הגנים בצרפת</strong><span>סיור בפסטיבלים הבינלאומיים</span></div>
+            <div class="lec"><strong>תערוכת הפרחים צ'לסי</strong><span>מהתערוכה היוקרתית בלונדון</span></div>
+            <div class="lec"><strong>אפקטים ויזואליים בעזרת צמחים</strong><span>צבע, מרקם ותנועה בגן</span></div>
         </div>
     </section>
 
