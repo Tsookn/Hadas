@@ -3,176 +3,357 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>הדס צוק - תכנון גנים ונוף</title>
+    <title>הדס צוק — תכנון גנים, הרצאות וכתיבה | פורטפוליו</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600&family=Frank+Ruhl+Libre:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #f9f7f4;
-            color: #333;
-            line-height: 1.6;
+        :root {
+            --green-dark:#1f3d12; --green:#3b6d11; --green-mid:#639922;
+            --green-light:#c0dd97; --cream:#f7f5ef; --text:#2b2b28; --muted:#5f5e5a;
         }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior:smooth; }
+        body { font-family:'Assistant',sans-serif; color:var(--text); background:var(--cream); line-height:1.7; }
+        h1,h2,h3,h4 { font-family:'Frank Ruhl Libre',serif; font-weight:500; }
 
-        header {
-            background: linear-gradient(135deg, #2d5016 0%, #4a7c23 50%, #6b8f3c 100%);
-            color: white;
-            text-align: center;
-            padding: 80px 20px 60px;
-        }
+        /* NAV */
+        nav { position:fixed; top:0; right:0; left:0; z-index:100; display:flex; align-items:center; justify-content:space-between; padding:20px 5vw; transition:background .4s,padding .4s; }
+        nav.scrolled { background:rgba(247,245,239,.96); padding:13px 5vw; box-shadow:0 2px 18px rgba(0,0,0,.06); }
+        nav .logo { font-family:'Frank Ruhl Libre',serif; font-size:1.45em; font-weight:700; color:#fff; letter-spacing:1px; transition:color .4s; white-space:nowrap; }
+        nav.scrolled .logo { color:var(--green-dark); }
+        nav ul { display:flex; gap:22px; list-style:none; }
+        nav ul a { color:#fff; text-decoration:none; font-size:.93em; white-space:nowrap; transition:color .3s; }
+        nav.scrolled ul a { color:var(--text); }
+        nav ul a:hover { color:var(--green-light); }
+        nav.scrolled ul a:hover { color:var(--green); }
+        .nav-toggle { display:none; background:none; border:none; color:#fff; font-size:1.8em; cursor:pointer; }
+        nav.scrolled .nav-toggle { color:var(--green-dark); }
 
-        header h1 {
-            font-size: 3em;
-            margin-bottom: 10px;
-            letter-spacing: 2px;
-        }
+        /* HERO */
+        .hero { position:relative; height:100vh; min-height:580px; display:flex; align-items:center; justify-content:center; text-align:center; color:#fff;
+            background-color:var(--green); background-image:linear-gradient(180deg,rgba(20,40,12,.5),rgba(20,40,12,.28) 38%,rgba(20,40,12,.66)), url('images/cover.jpg');
+            background-size:cover; background-position:center; }
+        .hero-content { max-width:840px; padding:0 24px; }
+        .hero .eyebrow { font-size:1.5em; letter-spacing:5px; opacity:.92; margin-bottom:18px; }
+        .hero h1 { font-size:4em; line-height:1.15; margin-bottom:22px; text-shadow:0 2px 24px rgba(0,0,0,.35); }
+        .hero p { font-size:1.25em; font-weight:300; max-width:640px; margin:0 auto 34px; text-shadow:0 1px 12px rgba(0,0,0,.3); }
+        .btn { display:inline-block; background:var(--green-light); color:var(--green-dark); padding:14px 40px; border-radius:50px; text-decoration:none; font-weight:600; letter-spacing:.5px; transition:transform .3s,background .3s; }
+        .btn:hover { background:#fff; transform:translateY(-2px); }
+        .scroll-hint { position:absolute; bottom:28px; left:50%; transform:translateX(-50%); color:#fff; opacity:.85; font-size:1.6em; animation:bob 2s infinite; }
+        @keyframes bob { 0%,100%{transform:translate(-50%,0);} 50%{transform:translate(-50%,8px);} }
 
-        header p {
-            font-size: 1.3em;
-            opacity: 0.9;
-            letter-spacing: 1px;
-        }
+        /* SECTION SHELL */
+        .section { padding:96px 6vw; }
+        .section-head { text-align:center; max-width:780px; margin:0 auto 50px; }
+        .section-head .kicker { color:var(--green-mid); font-weight:600; letter-spacing:3px; font-size:.85em; margin-bottom:12px; }
+        .section-head h2 { font-size:2.3em; color:var(--green-dark); margin-bottom:16px; }
+        .section-head p { color:var(--muted); font-weight:300; font-size:1.12em; }
 
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 60px 20px;
-        }
+        /* INTRO */
+        .intro { max-width:840px; margin:0 auto; padding:104px 24px 12px; text-align:center; }
+        .intro h2 { font-size:2.2em; color:var(--green-dark); margin-bottom:22px; }
+        .intro p { font-size:1.18em; color:var(--muted); font-weight:300; }
 
-        .about {
-            text-align: center;
-            margin-bottom: 60px;
-        }
+        /* VISUAL NAV GRID */
+        .navgrid { display:grid; grid-template-columns:repeat(auto-fit,minmax(290px,1fr)); gap:16px; max-width:1180px; margin:0 auto; }
+        .nav-tile { position:relative; aspect-ratio:4/3; border-radius:14px; overflow:hidden; display:flex; align-items:flex-end; color:#fff; text-decoration:none; background-color:var(--green); background-size:cover; background-position:center; }
+        .nav-tile::after { content:''; position:absolute; inset:0; background:linear-gradient(180deg,rgba(20,40,12,0) 35%,rgba(20,40,12,.82)); transition:background .35s; }
+        .nav-tile:hover::after { background:linear-gradient(180deg,rgba(31,61,18,.25) 10%,rgba(20,40,12,.85)); }
+        .nav-tile .cap { position:relative; z-index:1; padding:24px; transition:transform .35s; }
+        .nav-tile:hover .cap { transform:translateY(-4px); }
+        .nav-tile .cap strong { display:block; font-family:'Frank Ruhl Libre',serif; font-size:1.5em; font-weight:500; margin-bottom:4px; }
+        .nav-tile .cap span { font-size:.95em; opacity:.9; font-weight:300; }
+        .nav-tile .cap .go { display:inline-block; margin-top:10px; font-size:.9em; color:var(--green-light); }
+        .t-plan    { background-image:url('images/cover.jpg'); }
+        .t-survey  { background-image:url('https://images.unsplash.com/photo-1571055107559-3e67626fa8be?auto=format&fit=crop&w=900&q=70'); }
+        .t-article { background-image:url('https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=900&q=70'); }
+        .t-book    { background-image:url('https://images.unsplash.com/photo-1591857177580-dc82b9ac4e1e?auto=format&fit=crop&w=900&q=70'); }
+        .t-lecture { background-image:url('https://images.unsplash.com/photo-1598902108854-10e335adac99?auto=format&fit=crop&w=900&q=70'); }
+        .t-course  { background-image:url('https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&w=900&q=70'); }
 
-        .about h2 {
-            font-size: 1.8em;
-            color: #2d5016;
-            margin-bottom: 20px;
-        }
+        /* PROJECT GALLERY */
+        .gallery { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:16px; max-width:1180px; margin:0 auto; }
+        .proj { position:relative; aspect-ratio:4/3; border-radius:12px; overflow:hidden; display:flex; align-items:flex-end; color:#fff; cursor:pointer; background-size:cover; background-position:center; background-color:var(--green); }
+        .proj::after { content:''; position:absolute; inset:0; background:linear-gradient(180deg,transparent 45%,rgba(20,40,12,.78)); transition:background .35s; }
+        .proj:hover::after { background:linear-gradient(180deg,rgba(31,61,18,.2),rgba(20,40,12,.82)); }
+        .proj .pc { position:relative; z-index:1; padding:20px; }
+        .proj .pc strong { display:block; font-family:'Frank Ruhl Libre',serif; font-size:1.3em; font-weight:500; }
+        .proj .pc span { font-size:.88em; opacity:.85; }
+        .p1{background-image:url('images/project-view.jpg');}
+        .p2{background-image:url('images/project-grasses.jpg');}
+        .p3{background-image:url('images/project-kitchen.jpg');}
+        .p4{background-image:url('images/project-redwall.jpg');}
+        .p5{background-image:url('images/project-public.jpg');}
+        .p6{background-image:url('images/project-adobe.jpg');}
 
-        .about p {
-            font-size: 1.1em;
-            color: #555;
-            max-width: 700px;
-            margin: 0 auto;
-        }
+        /* SERVICE ROW */
+        .service { display:grid; grid-template-columns:1fr 1fr; align-items:stretch; min-height:440px; }
+        .service-img { position:relative; background-color:var(--green); background-size:cover; background-position:center; min-height:340px;
+            background-image:url('https://images.unsplash.com/photo-1571055107559-3e67626fa8be?auto=format&fit=crop&w=1100&q=70'); }
+        .service-text { display:flex; flex-direction:column; justify-content:center; padding:60px 7vw; background:#fff; }
+        .service-text .num { color:var(--green-mid); font-weight:600; letter-spacing:3px; margin-bottom:10px; font-size:.9em; }
+        .service-text h3 { font-size:1.9em; color:var(--green-dark); margin-bottom:16px; }
+        .service-text p { color:var(--muted); margin-bottom:22px; }
+        .text-link { color:var(--green); text-decoration:none; font-weight:600; border-bottom:2px solid var(--green-light); padding-bottom:3px; align-self:flex-start; transition:border-color .3s; }
+        .text-link:hover { border-color:var(--green); }
 
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin: 40px 0;
-        }
+        /* ARTICLES LIST */
+        .articles { background:#fff; }
+        .art-list { max-width:880px; margin:0 auto; }
+        .art { display:flex; align-items:baseline; justify-content:space-between; gap:24px; padding:26px 0; border-bottom:1px solid rgba(0,0,0,.08); }
+        .art:hover h3 { color:var(--green); }
+        .art .meta { color:var(--green-mid); font-size:.82em; font-weight:600; letter-spacing:1px; min-width:110px; }
+        .art .body h3 { font-size:1.35em; color:var(--green-dark); margin-bottom:6px; transition:color .3s; }
+        .art .body p { color:var(--muted); font-weight:300; }
+        .art .arrow { color:var(--green); font-size:1.2em; }
 
-        .gallery-item {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.08);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+        /* BOOK */
+        .book { display:grid; grid-template-columns:260px 1fr; gap:46px; align-items:center; max-width:1000px; margin:0 auto; background:#fff; border-radius:16px; overflow:hidden; box-shadow:0 10px 36px rgba(0,0,0,.08); }
+        .book-cover { aspect-ratio:3/4; background-color:var(--green-dark); background-image:linear-gradient(160deg,rgba(31,61,18,.55),rgba(31,61,18,.85)), url('https://images.unsplash.com/photo-1591857177580-dc82b9ac4e1e?auto=format&fit=crop&w=700&q=70'); background-size:cover; background-position:center; display:flex; flex-direction:column; align-items:center; justify-content:center; color:#fff; gap:8px; text-align:center; padding:24px; }
+        .book-cover .ba { font-size:.9em; opacity:.9; letter-spacing:2px; }
+        .book-cover .bt { font-family:'Frank Ruhl Libre',serif; font-size:1.7em; }
+        .book-info { padding:40px 40px 40px 0; }
+        .book-info .kicker { color:var(--green-mid); font-weight:600; letter-spacing:3px; font-size:.85em; margin-bottom:12px; }
+        .book-info h3 { font-size:1.8em; color:var(--green-dark); margin-bottom:16px; }
+        .book-info p { color:var(--muted); font-weight:300; margin-bottom:22px; }
 
-        .gallery-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-        }
+        /* LECTURE TOPIC GRID */
+        .topic-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:18px; max-width:1100px; margin:0 auto; }
+        .topic { position:relative; border-radius:12px; overflow:hidden; aspect-ratio:5/4; display:flex; align-items:flex-end; color:#fff; cursor:pointer; transition:transform .4s; background-size:cover; background-position:center; background-color:var(--green); }
+        .topic:hover { transform:translateY(-4px); }
+        .topic::after { content:''; position:absolute; inset:0; background:linear-gradient(180deg,transparent 35%,rgba(20,40,12,.8)); }
+        .topic .tl { position:relative; z-index:1; padding:20px; }
+        .topic .tl strong { display:block; font-family:'Frank Ruhl Libre',serif; font-size:1.35em; font-weight:500; }
+        .topic .tl em { font-style:normal; font-size:.9em; opacity:.88; }
+        .g1{background-image:url('https://images.unsplash.com/photo-1598902108854-10e335adac99?auto=format&fit=crop&w=700&q=65');}
+        .g2{background-image:url('https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=700&q=65');}
+        .g3{background-image:url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=700&q=65');}
+        .g4{background-image:url('https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=700&q=65');}
+        .g5{background-image:linear-gradient(135deg,#1f3d12,#3b6d11);}
+        .g6{background-image:linear-gradient(135deg,#4a7c23,#8aa84a);}
 
-        .gallery-item img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-        }
+        /* COURSES (SYLLABUS) */
+        .courses { background:var(--green-dark); color:#fff; }
+        .courses .section-head h2 { color:#fff; }
+        .courses .section-head p { color:rgba(255,255,255,.8); }
+        .courses .section-head .kicker { color:var(--green-light); }
+        .syllabus { max-width:860px; margin:0 auto; display:grid; gap:14px; }
+        .module { display:flex; gap:20px; align-items:flex-start; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); border-radius:12px; padding:22px 26px; }
+        .module .mn { font-family:'Frank Ruhl Libre',serif; font-size:1.6em; color:var(--green-light); min-width:42px; }
+        .module h4 { font-size:1.25em; color:#fff; margin-bottom:6px; }
+        .module p { color:rgba(255,255,255,.78); font-weight:300; font-size:.98em; }
+        .course-note { text-align:center; margin-top:34px; color:rgba(255,255,255,.75); font-weight:300; }
 
-        .gallery-item p {
-            padding: 15px;
-            text-align: center;
-            color: #555;
-            font-size: 0.95em;
-        }
+        /* FOOTER */
+        footer { background:#16300d; color:rgba(255,255,255,.85); padding:80px 6vw 30px; }
+        .footer-grid { display:grid; grid-template-columns:2fr 1fr 1fr; gap:50px; max-width:1100px; margin:0 auto 50px; }
+        footer h4 { color:#fff; font-size:1.4em; margin-bottom:18px; }
+        footer h5 { color:var(--green-light); font-size:1em; margin-bottom:16px; letter-spacing:1px; }
+        footer a { color:rgba(255,255,255,.85); text-decoration:none; transition:color .3s; }
+        footer a:hover { color:var(--green-light); }
+        footer ul { list-style:none; }
+        footer ul li { margin-bottom:10px; }
+        .contact-row { display:flex; align-items:center; gap:10px; margin-bottom:12px; }
+        .footer-bottom { border-top:1px solid rgba(255,255,255,.15); padding-top:24px; text-align:center; font-size:.9em; opacity:.7; }
 
-        .gallery-placeholder {
-            background: white;
-            border-radius: 12px;
-            padding: 60px 20px;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.08);
-            border: 2px dashed #c5d4a8;
-            color: #888;
-        }
-
-        .gallery-placeholder p {
-            font-size: 1.1em;
-        }
-
-        .contact {
-            text-align: center;
-            margin: 60px 0;
-            padding: 40px;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.08);
-        }
-
-        .contact h2 {
-            font-size: 1.6em;
-            color: #2d5016;
-            margin-bottom: 20px;
-        }
-
-        .contact a {
-            display: inline-block;
-            background: #4a7c23;
-            color: white;
-            padding: 12px 35px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-size: 1.1em;
-            transition: background 0.3s ease;
-        }
-
-        .contact a:hover {
-            background: #2d5016;
-        }
-
-        footer {
-            background: #2d5016;
-            color: rgba(255,255,255,0.8);
-            text-align: center;
-            padding: 25px 20px;
-        }
-
-        @media (max-width: 768px) {
-            header h1 { font-size: 2em; }
-            .gallery { grid-template-columns: 1fr; }
+        @media (max-width:900px) {
+            nav ul { display:none; position:absolute; top:100%; right:0; left:0; flex-direction:column; gap:0; background:rgba(247,245,239,.98); padding:10px 5vw 20px; }
+            nav ul.open { display:flex; }
+            nav ul a { color:var(--text); display:block; padding:12px 0; border-bottom:1px solid rgba(0,0,0,.06); }
+            .nav-toggle { display:block; }
+            .hero h1 { font-size:2.6em; }
+            .service { grid-template-columns:1fr; }
+            .service-text { padding:44px 7vw; }
+            .book { grid-template-columns:1fr; }
+            .book-cover { aspect-ratio:16/10; }
+            .book-info { padding:30px; }
+            .art { flex-direction:column; gap:6px; }
+            .footer-grid { grid-template-columns:1fr; gap:36px; }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>הדס צוק</h1>
-        <p>תכנון גנים ונוף</p>
+
+    <nav id="nav">
+        <div class="logo">הדס צוק</div>
+        <button class="nav-toggle" id="navToggle" aria-label="תפריט">☰</button>
+        <ul id="navMenu">
+            <li><a href="#hero">בית</a></li>
+            <li><a href="#planning">תכנון גנים</a></li>
+            <li><a href="#surveys">סקרי עצים</a></li>
+            <li><a href="#articles">מאמרים</a></li>
+            <li><a href="#lectures">הרצאות</a></li>
+            <li><a href="#courses">קורסים</a></li>
+            <li><a href="#contact">צרו קשר</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero" id="hero">
+        <div class="hero-content">
+            <div class="eyebrow">תכנון · הוראה · כתיבה</div>
+            <h1>הדס צוק</h1>
+            <p>שנים של עשייה בעולם הגן — תכנון גנים, סקרי עצים, הרצאות, קורסים וכתיבה מקצועית. כאן מתרכזת כל העבודה במקום אחד.</p>
+            <a href="#work" class="btn">לעבודות שלי</a>
+        </div>
+        <div class="scroll-hint">⌄</div>
     </header>
 
-    <div class="container">
-        <div class="about">
-            <h2>עיצוב ותכנון גנים ונוף</h2>
-            <p>הפיכת חלומות ירוקים למציאות. תכנון ועיצוב גנים ונוף, בגישה אישית ומקצועית.</p>
-        </div>
+    <!-- INTRO -->
+    <section class="intro">
+        <h2>גוף עבודה של שנים</h2>
+        <p>לאורך השנים תכננתי גנים, ביצעתי סקרי עצים, הרציתי על סגנונות גנים מהעולם, העברתי קורסים וכתבתי מאמרים וטקסט לספר. האתר הזה מרכז את כל אלה — תכנון, ידע ויצירה במקום אחד.</p>
+    </section>
 
+    <!-- VISUAL NAV GRID -->
+    <section class="section" id="work" style="padding-top:54px;">
+        <div class="navgrid">
+            <a class="nav-tile t-plan" href="#planning"><div class="cap"><strong>תכנון גנים</strong><span>מבחר עבודות לאורך השנים</span><div class="go">לגלריה ←</div></div></a>
+            <a class="nav-tile t-survey" href="#surveys"><div class="cap"><strong>סקרי עצים</strong><span>סקרים מקצועיים לרישוי</span><div class="go">לפרטים ←</div></div></a>
+            <a class="nav-tile t-article" href="#articles"><div class="cap"><strong>מאמרים</strong><span>כתיבה בעולם הגן</span><div class="go">לקריאה ←</div></div></a>
+            <a class="nav-tile t-book" href="#book"><div class="cap"><strong>טקסט לספר</strong><span>כתיבה מקצועית</span><div class="go">לפרטים ←</div></div></a>
+            <a class="nav-tile t-lecture" href="#lectures"><div class="cap"><strong>הרצאות</strong><span>סילבוס סגנונות גנים</span><div class="go">לתוכן ←</div></div></a>
+            <a class="nav-tile t-course" href="#courses"><div class="cap"><strong>קורסים</strong><span>סילבוס קורסים שהעברתי</span><div class="go">לתוכן ←</div></div></a>
+        </div>
+    </section>
+
+    <!-- PLANNING / PORTFOLIO -->
+    <section class="section" id="planning">
+        <div class="section-head">
+            <div class="kicker">פורטפוליו</div>
+            <h2>תכנון גנים — מבחר עבודות</h2>
+            <p>מבחר מתוך הגנים והפרויקטים שתכננתי לאורך השנים. בקרוב ייכנסו תמונות אמיתיות מהעבודות שלי.</p>
+        </div>
         <div class="gallery">
-            <div class="gallery-placeholder">
-                <p>🌿 גלריית עבודות בקרוב</p>
+            <div class="proj p1"><div class="pc"><strong>פינת ישיבה עם נוף</strong><span>גן פרטי משקיף לנוף</span></div></div>
+            <div class="proj p2"><div class="pc"><strong>גן נוי צבעוני</strong><span>עשבי נוי וצבעי קיץ</span></div></div>
+            <div class="proj p3"><div class="pc"><strong>מטבח חוץ ואירוח</strong><span>אזור בישול בגן</span></div></div>
+            <div class="proj p4"><div class="pc"><strong>אדריכלות ועיצוב</strong><span>מסגור נוף וקירות צבע</span></div></div>
+            <div class="proj p5"><div class="pc"><strong>גינון ציבורי</strong><span>צמחייה חסכונית במים</span></div></div>
+            <div class="proj p6"><div class="pc"><strong>אמנות ובנייה בגן</strong><span>ספסל אדמה ופריחה</span></div></div>
+        </div>
+    </section>
+
+    <!-- SURVEYS -->
+    <section class="service" id="surveys">
+        <div class="service-img"></div>
+        <div class="service-text">
+            <div class="num">רישוי</div>
+            <h3>סקרי עצים</h3>
+            <p>עריכת סקרי עצים מקצועיים לצורכי תכנון ורישוי, כולל קבלת היתרי בנייה — מיפוי, מדידה והערכה של העצים בשטח בהתאם לדרישות הרשויות. סקר מסודר ומדויק שמלווה את התהליך ומקצר את הדרך לאישור.</p>
+            <a href="#contact" class="text-link">להזמנת סקר עצים ←</a>
+        </div>
+    </section>
+
+    <!-- ARTICLES -->
+    <section class="section articles" id="articles">
+        <div class="section-head">
+            <div class="kicker">כתיבה</div>
+            <h2>מאמרים</h2>
+            <p>אוסף המאמרים שכתבתי בעולם הגן והגינון — עיצוב, אחזקה וידע מקצועי. אלה כותרות לדוגמה שיוחלפו במאמרים האמיתיים.</p>
+        </div>
+        <div class="art-list">
+            <div class="art"><div class="meta">עיצוב הגן</div><div class="body"><h3>איך מתחילים לתכנן גן</h3><p>עקרונות ראשונים לארגון המרחב, מסלולי תנועה ונקודות מבט.</p></div><div class="arrow">←</div></div>
+            <div class="art"><div class="meta">צמחייה</div><div class="body"><h3>צמחים לגן ים־תיכוני חסכוני במים</h3><p>בחירת צמחייה מתאימה לאקלים ולחיסכון בהשקיה.</p></div><div class="arrow">←</div></div>
+            <div class="art"><div class="meta">אחזקה</div><div class="body"><h3>לוח אחזקת הגן לאורך השנה</h3><p>מתי לגזום, לדשן ולשתול — מדריך עונתי מעשי.</p></div><div class="arrow">←</div></div>
+            <div class="art"><div class="meta">מקצועי</div><div class="body"><h3>שיקולים בתכנון מערכת השקיה</h3><p>תכנון נכון של ההשקיה כבסיס לגן בריא ויעיל.</p></div><div class="arrow">←</div></div>
+            <div class="art"><div class="meta">השראה</div><div class="body"><h3>סגנונות גנים והשפעתם על העיצוב</h3><p>איך מסורות גינון מהעולם מעשירות את הגן הישראלי.</p></div><div class="arrow">←</div></div>
+        </div>
+    </section>
+
+    <!-- BOOK -->
+    <section class="section" id="book">
+        <div class="section-head">
+            <div class="kicker">פרסום</div>
+            <h2>טקסט לספר</h2>
+            <p>טקסט מקצועי שכתבתי לספר בנושא הגן.</p>
+        </div>
+        <div class="book">
+            <div class="book-cover">
+                <div class="ba">הדס צוק</div>
+                <div class="bt">הספר</div>
+                <div class="ba">מקום לכריכה</div>
+            </div>
+            <div class="book-info">
+                <div class="kicker">כתיבה מקצועית</div>
+                <h3>הפרק שכתבתי</h3>
+                <p>טקסט מקצועי המשלב ידע, ניסיון מעשי ותפיסת עיצוב בעולם הגן. כאן יוצגו שם הספר, תיאור הפרק שכתבתי, וקישור או דרך להשיגו.</p>
+                <a href="#contact" class="text-link">לפרטים נוספים ←</a>
             </div>
         </div>
+    </section>
 
-        <div class="contact">
-            <h2>צרו קשר</h2>
-            <a href="mailto:hadas@tsook.net">hadas@tsook.net</a>
+    <!-- LECTURES -->
+    <section class="section" id="lectures">
+        <div class="section-head">
+            <div class="kicker">הרצאות · סילבוס</div>
+            <h2>סגנונות גנים מרחבי העולם</h2>
+            <p>נושאי ההרצאות שלי — מסע בין תרבויות הגן: היסטוריה, פילוסופיה ועיצוב. אלה נושאים לדוגמה, וניתן להתאים הרצאה לקהל.</p>
         </div>
-    </div>
+        <div class="topic-grid">
+            <div class="topic g1"><div class="tl"><strong>הגן היפני</strong><em>שלווה, סמליות ואיזון</em></div></div>
+            <div class="topic g2"><div class="tl"><strong>הגן האנגלי</strong><em>נוף רומנטי וגני קוטג'</em></div></div>
+            <div class="topic g3"><div class="tl"><strong>הגן הים־תיכוני</strong><em>אקלים, ניחוח וצבע</em></div></div>
+            <div class="topic g4"><div class="tl"><strong>הגן הצרפתי</strong><em>סימטריה ופאר פורמלי</em></div></div>
+            <div class="topic g5"><div class="tl"><strong>הגן האסלאמי</strong><em>מים, גאומטריה וגן עדן</em></div></div>
+            <div class="topic g6"><div class="tl"><strong>הגן המדברי</strong><em>צמחים חסכוניים ונוף יבש</em></div></div>
+        </div>
+    </section>
 
-    <footer>
-        <p>&copy; 2026 הדס צוק - תכנון גנים ונוף</p>
+    <!-- COURSES -->
+    <section class="section courses" id="courses">
+        <div class="section-head">
+            <div class="kicker">קורסים · סילבוס</div>
+            <h2>קורס תכנון גן הנוי</h2>
+            <p>סילבוס הקורס שהעברתי ללימוד עקרונות תכנון ועיצוב הגן — מהרעיון ועד התוכנית.</p>
+        </div>
+        <div class="syllabus">
+            <div class="module"><div class="mn">01</div><div><h4>מבוא לתכנון הגן</h4><p>עקרונות יסוד, שפת העיצוב והכרת מרכיבי הגן.</p></div></div>
+            <div class="module"><div class="mn">02</div><div><h4>קריאת השטח והאקלים</h4><p>ניתוח התנאים — קרקע, חשיפה, מים ואופי המקום.</p></div></div>
+            <div class="module"><div class="mn">03</div><div><h4>צמחייה ועונתיות</h4><p>בחירת צמחים, הרכבים, צבע ופריחה לאורך השנה.</p></div></div>
+            <div class="module"><div class="mn">04</div><div><h4>חומרים, משטחים ומבנים</h4><p>שבילים, ריצוף, אלמנטים בנויים והשתלבותם בנוף.</p></div></div>
+            <div class="module"><div class="mn">05</div><div><h4>מים, תאורה ואווירה</h4><p>בריכות, נחלים, תאורת גן ויצירת חוויה.</p></div></div>
+            <div class="module"><div class="mn">06</div><div><h4>מהתכנית לביצוע</h4><p>הכנת תוכנית מפורטת ותרגום הרעיון למציאות.</p></div></div>
+        </div>
+        <p class="course-note">יש לך עוד קורסים שהעברת? נוסיף לכאן סילבוס לכל אחד מהם.</p>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="contact">
+        <div class="footer-grid">
+            <div>
+                <h4>הדס צוק</h4>
+                <p style="max-width:360px;">תכנון גנים · סקרי עצים · הרצאות על סגנונות גנים · קורסים · מאמרים וכתיבה מקצועית. גוף עבודה של שנים בעולם הגן.</p>
+            </div>
+            <div>
+                <h5>צרו קשר</h5>
+                <div class="contact-row">✉️ <a href="mailto:hadas@tsook.net">hadas@tsook.net</a></div>
+                <div class="contact-row">📞 <a href="tel:">להוספת טלפון</a></div>
+                <div class="contact-row">💬 <a href="#">וואטסאפ</a></div>
+            </div>
+            <div>
+                <h5>ניווט</h5>
+                <ul>
+                    <li><a href="#planning">תכנון גנים</a></li>
+                    <li><a href="#surveys">סקרי עצים</a></li>
+                    <li><a href="#articles">מאמרים</a></li>
+                    <li><a href="#book">טקסט לספר</a></li>
+                    <li><a href="#lectures">הרצאות</a></li>
+                    <li><a href="#courses">קורסים</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">© 2026 הדס צוק — תכנון, ידע ויצירה בעולם הגן</div>
     </footer>
+
+    <script>
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
+        const toggle = document.getElementById('navToggle');
+        const menu = document.getElementById('navMenu');
+        toggle.addEventListener('click', () => menu.classList.toggle('open'));
+        menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
+    </script>
 </body>
 </html>
