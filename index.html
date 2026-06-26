@@ -107,6 +107,15 @@
         .art .body h3 { font-size:1.35em; color:var(--green-dark); margin-bottom:6px; transition:color .3s; }
         .art .body p { color:var(--muted); font-weight:300; }
         .art .arrow { color:var(--green); font-size:1.2em; }
+        .acards { display:grid; grid-template-columns:repeat(auto-fit,minmax(290px,1fr)); gap:22px; max-width:1100px; margin:0 auto; }
+        .acard { background:#fff; border:1px solid rgba(0,0,0,.07); border-radius:14px; overflow:hidden; box-shadow:0 6px 24px rgba(0,0,0,.06); transition:transform .3s,box-shadow .3s; display:flex; flex-direction:column; }
+        .acard:hover { transform:translateY(-5px); box-shadow:0 12px 32px rgba(0,0,0,.12); }
+        .acard .cover { height:280px; background:#f1efe8; background-size:cover; background-position:top center; }
+        .acard .ab { padding:18px 20px; display:flex; flex-direction:column; flex:1; }
+        .acard .src { color:var(--green-mid); font-size:.8em; font-weight:600; letter-spacing:1px; margin-bottom:6px; }
+        .acard h3 { font-size:1.25em; color:var(--green-dark); margin-bottom:14px; }
+        .acard .read { margin-top:auto; color:var(--green); text-decoration:none; font-weight:600; border-bottom:2px solid var(--green-light); padding-bottom:2px; align-self:flex-start; transition:border-color .3s; }
+        .acard .read:hover { border-color:var(--green); }
 
         /* BOOK */
         .book { display:grid; grid-template-columns:260px 1fr; gap:46px; align-items:center; max-width:1000px; margin:0 auto; background:#fff; border-radius:16px; overflow:hidden; box-shadow:0 10px 36px rgba(0,0,0,.08); }
@@ -287,14 +296,21 @@
         <div class="section-head">
             <div class="kicker">כתיבה</div>
             <h2>מאמרים</h2>
-            <p>אוסף המאמרים שכתבתי בעולם הגן והגינון — עיצוב, אחזקה וידע מקצועי. אלה כותרות לדוגמה שיוחלפו במאמרים האמיתיים.</p>
+            <p>מבחר מהכתבות שכתבתי וצילמתי בעיתונות המקצועית. לחצו על כתבה לקריאתה המלאה.</p>
         </div>
-        <div class="art-list">
-            <div class="art"><div class="meta">עיצוב הגן</div><div class="body"><h3>איך מתחילים לתכנן גן</h3><p>עקרונות ראשונים לארגון המרחב, מסלולי תנועה ונקודות מבט.</p></div><div class="arrow">←</div></div>
-            <div class="art"><div class="meta">צמחייה</div><div class="body"><h3>צמחים לגן ים־תיכוני חסכוני במים</h3><p>בחירת צמחייה מתאימה לאקלים ולחיסכון בהשקיה.</p></div><div class="arrow">←</div></div>
-            <div class="art"><div class="meta">אחזקה</div><div class="body"><h3>לוח אחזקת הגן לאורך השנה</h3><p>מתי לגזום, לדשן ולשתול — מדריך עונתי מעשי.</p></div><div class="arrow">←</div></div>
-            <div class="art"><div class="meta">מקצועי</div><div class="body"><h3>שיקולים בתכנון מערכת השקיה</h3><p>תכנון נכון של ההשקיה כבסיס לגן בריא ויעיל.</p></div><div class="arrow">←</div></div>
-            <div class="art"><div class="meta">השראה</div><div class="body"><h3>סגנונות גנים והשפעתם על העיצוב</h3><p>איך מסורות גינון מהעולם מעשירות את הגן הישראלי.</p></div><div class="arrow">←</div></div>
+        <div class="acards">
+            <div class="acard">
+                <div class="cover" style="background-image:url('images/articles/greenwall.jpg')"></div>
+                <div class="ab"><div class="src">מגזין גן ונוף</div><h3>גינה על הקיר</h3><a class="read" href="articles/green-wall.pdf" target="_blank" rel="noopener">לקריאת הכתבה ←</a></div>
+            </div>
+            <div class="acard">
+                <div class="cover" style="background-image:url('images/articles/modern-life.jpg')"></div>
+                <div class="ab"><div class="src">עיתונות מקצועית</div><h3>התאמת הגן הפרטי לאורח החיים המודרני</h3><a class="read" href="articles/modern-garden.pdf" target="_blank" rel="noopener">לקריאת הכתבה ←</a></div>
+            </div>
+            <div class="acard">
+                <div class="cover" style="background-image:url('images/articles/breathing-walls.jpg')"></div>
+                <div class="ab"><div class="src">מגזין בנין ודיור</div><h3>קירות נושמים</h3><a class="read" href="articles/breathing-walls.pdf" target="_blank" rel="noopener">לקריאת הכתבה ←</a></div>
+            </div>
         </div>
     </section>
 
