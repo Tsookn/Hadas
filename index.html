@@ -119,9 +119,8 @@
 
         /* BOOK */
         .book { display:grid; grid-template-columns:260px 1fr; gap:46px; align-items:center; max-width:1000px; margin:0 auto; background:#fff; border-radius:16px; overflow:hidden; box-shadow:0 10px 36px rgba(0,0,0,.08); }
-        .book-cover { aspect-ratio:3/4; background-color:var(--green-dark); background-image:linear-gradient(160deg,rgba(31,61,18,.55),rgba(31,61,18,.85)), url('https://images.unsplash.com/photo-1591857177580-dc82b9ac4e1e?auto=format&fit=crop&w=700&q=70'); background-size:cover; background-position:center; display:flex; flex-direction:column; align-items:center; justify-content:center; color:#fff; gap:8px; text-align:center; padding:24px; }
-        .book-cover .ba { font-size:.9em; opacity:.9; letter-spacing:2px; }
-        .book-cover .bt { font-family:'Frank Ruhl Libre',serif; font-size:1.7em; }
+        .book-cover { display:flex; align-items:center; justify-content:center; }
+        .book-cover img { width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:6px; box-shadow:0 10px 28px rgba(0,0,0,.2); }
         .book-info { padding:40px 40px 40px 0; }
         .book-info .kicker { color:var(--green-mid); font-weight:600; letter-spacing:3px; font-size:.85em; margin-bottom:12px; }
         .book-info h3 { font-size:1.8em; color:var(--green-dark); margin-bottom:16px; }
@@ -192,7 +191,7 @@
             .service { grid-template-columns:1fr; }
             .service-text { padding:44px 7vw; }
             .book { grid-template-columns:1fr; }
-            .book-cover { aspect-ratio:16/10; }
+            .book-cover img { max-width:220px; }
             .book-info { padding:30px; }
             .art { flex-direction:column; gap:6px; }
             .footer-grid { grid-template-columns:1fr; gap:36px; }
@@ -367,19 +366,17 @@
     <section class="section" id="book">
         <div class="section-head">
             <div class="kicker">פרסום</div>
-            <h2>טקסט לספר</h2>
-            <p>טקסט מקצועי שכתבתי לספר בנושא הגן.</p>
+            <h2>הספר</h2>
+            <p>השתתפתי בכתיבה המדעית של ספר עיצוב הגנים "בין הגינה לבית".</p>
         </div>
         <div class="book">
             <div class="book-cover">
-                <div class="ba">הדס צוק</div>
-                <div class="bt">הספר</div>
-                <div class="ba">מקום לכריכה</div>
+                <img src="images/book-cover.jpg" alt="כריכת הספר 'בין הגינה לבית' מאת אורלי רובינזון">
             </div>
             <div class="book-info">
-                <div class="kicker">כתיבה מקצועית</div>
-                <h3>הפרק שכתבתי</h3>
-                <p>טקסט מקצועי המשלב ידע, ניסיון מעשי ותפיסת עיצוב בעולם הגן. כאן יוצגו שם הספר, תיאור הפרק שכתבתי, וקישור או דרך להשיגו.</p>
+                <div class="kicker">כתיבה מדעית</div>
+                <h3>בין הגינה לבית</h3>
+                <p>ספרה של אורלי רובינזון בהוצאת מודן (2008) — תיעוד מרהיב של עשרות גנים מעוצבים בארץ, סגנונות ופתרונות עיצוב לחיבור שבין הבית לגינה. <strong>הדס צוק השתתפה בכתיבה המדעית של הספר</strong>, ובמסגרתו כתבה את הפרק "מרכיבי הגן".</p>
                 <a href="#contact" class="text-link">לפרטים נוספים ←</a>
             </div>
         </div>
