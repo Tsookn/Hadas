@@ -290,6 +290,7 @@
             <div class="proj p1" onclick="openTsook()"><div class="pc"><strong>גן פרטי משקיף לנוף</strong><span>כרמי יוסף</span><span class="lb-hint">📷 לחצו לגלריית הפרויקט</span></div></div>
             <div class="proj" style="background-image:url('images/weiss/weiss-6.jpg')" onclick="openWeiss()" role="button" tabindex="0"><div class="pc"><strong>בית וייס</strong><span>כפר דניאל</span><span class="lb-hint">📷 לחצו לגלריית הפרויקט</span></div></div>
             <div class="proj" style="background-image:url('images/gozani/gozani-5.jpg')" onclick="openGozani()" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openGozani()}"><div class="pc"><strong>בית גוזני</strong><span>בית פרטי בכרמי יוסף</span><span class="lb-hint">📷 לחצו לגלריית הפרויקט</span></div></div>
+            <div class="proj" style="background-image:url('images/applied/applied-6.jpg')" onclick="openApplied()" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openApplied()}"><div class="pc"><strong>בית אפלייד מטריאלס</strong><span>רחובות</span><span class="lb-hint">📷 לחצו לגלריית הפרויקט</span></div></div>
             <div class="proj p2"><div class="pc"><strong>גן נוי צבעוני</strong><span>עשבי נוי וצבעי קיץ</span></div></div>
             <div class="proj p3"><div class="pc"><strong>מטבח חוץ ואירוח</strong><span>אזור בישול בגן</span></div></div>
             <div class="proj p4"><div class="pc"><strong>אדריכלות ועיצוב</strong><span>מסגור נוף וקירות צבע</span></div></div>
@@ -608,6 +609,29 @@
         </div>
     </div>
 
+    <div class="lightbox" id="appliedLb">
+        <button class="lb-close" onclick="closeApplied()" aria-label="סגור">✕</button>
+        <h3>בית אפלייד מטריאלס</h3>
+        <p class="lb-sub">מבנה משרדים · רחובות</p>
+        <div class="lb-grid">
+            <img src="images/applied/applied-6.jpg" alt="בית אפלייד מטריאלס — רחובות" loading="lazy">
+            <img src="images/applied/applied-5.jpg" alt="בית אפלייד מטריאלס — רחובות" loading="lazy">
+            <img src="images/applied/applied-10.jpg" alt="בית אפלייד מטריאלס — רחובות" loading="lazy">
+            <img src="images/applied/applied-12.jpg" alt="בית אפלייד מטריאלס — רחובות" loading="lazy">
+            <img src="images/applied/applied-1.jpg" alt="בית אפלייד מטריאלס — רחובות" loading="lazy">
+            <img src="images/applied/applied-2.jpg" alt="בית אפלייד מטריאלס — רחובות" loading="lazy">
+            <img src="images/applied/applied-4.jpg" alt="בית אפלייד מטריאלס — רחובות" loading="lazy">
+            <img src="images/applied/applied-8.jpg" alt="בית אפלייד מטריאלס — רחובות" loading="lazy">
+            <img src="images/applied/applied-9.jpg" alt="בית אפלייד מטריאלס — רחובות" loading="lazy">
+            <img src="images/applied/applied-11.jpg" alt="בית אפלייד מטריאלס — רחובות" loading="lazy">
+            <img src="images/applied/applied-3.jpg" alt="בית אפלייד מטריאלס — רחובות" loading="lazy">
+            <img src="images/applied/applied-14.jpg" alt="בית אפלייד מטריאלס — רחובות" loading="lazy">
+            <img src="images/applied/applied-7.jpg" alt="בית אפלייד מטריאלס — רחובות" loading="lazy">
+            <img src="images/applied/applied-13.jpg" alt="בית אפלייד מטריאלס — רחובות" loading="lazy">
+            <img src="images/applied/applied-15.jpg" alt="בית אפלייד מטריאלס — רחובות" loading="lazy">
+        </div>
+    </div>
+
     <button class="to-top" id="toTop" aria-label="חזרה לראש העמוד" title="חזרה לראש העמוד">↑</button>
 
     <script>
@@ -635,7 +659,11 @@
         function openGozani(){ gozaniLb.classList.add('open'); document.body.style.overflow = 'hidden'; }
         function closeGozani(){ gozaniLb.classList.remove('open'); document.body.style.overflow = ''; }
         gozaniLb.addEventListener('click', e => { if (e.target === gozaniLb) closeGozani(); });
-        document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeTsook(); closeWeiss(); closeGozani(); } });
+        const appliedLb = document.getElementById('appliedLb');
+        function openApplied(){ appliedLb.classList.add('open'); document.body.style.overflow = 'hidden'; }
+        function closeApplied(){ appliedLb.classList.remove('open'); document.body.style.overflow = ''; }
+        appliedLb.addEventListener('click', e => { if (e.target === appliedLb) closeApplied(); });
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeTsook(); closeWeiss(); closeGozani(); closeApplied(); } });
     </script>
 </body>
 </html>
