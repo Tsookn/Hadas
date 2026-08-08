@@ -135,6 +135,13 @@
         .topic .tl strong { display:block; font-family:'Frank Ruhl Libre',serif; font-size:1.35em; font-weight:500; }
         .topic .tl em { font-style:normal; font-size:.9em; opacity:.88; }
         .topic .tlink { display:block; margin-top:8px; font-size:.82em; font-weight:600; color:var(--green-light); }
+        .modern-slides .slide { position:absolute; inset:0; background-size:cover; background-position:center; opacity:0; z-index:0; animation:modernSlides 10s infinite; }
+        .modern-slides .s1 { background-image:url('images/lectures/modern-aalto.jpg'); animation-delay:0s; }
+        .modern-slides .s2 { background-image:url('images/lectures/modern-style.jpg'); animation-delay:5s; }
+        .modern-slides::after { z-index:1; }
+        .modern-slides .tl { z-index:2; }
+        @keyframes modernSlides { 0%{opacity:0} 3%{opacity:1} 45%{opacity:1} 50%{opacity:0} 100%{opacity:0} }
+        @media (prefers-reduced-motion:reduce) { .modern-slides .slide { animation:none; } .modern-slides .s1 { opacity:1; } }
         .g1{background-image:url('images/style-japanese.jpg');}
         .g2{background-image:url('images/style-mediterranean.jpg');}
         .g3{background-image:url('images/style-islamic.jpg');}
@@ -431,7 +438,7 @@
             <a class="topic g2" href="articles/lecture-mediterranean-garden.pdf" target="_blank" rel="noopener"><div class="tl"><strong>הגן הים־תיכוני</strong><em>אקלים, ניחוח וצבע</em><span class="tlink">לצפייה בהרצאה ←</span></div></a>
             <div class="topic g3"><div class="tl"><strong>הסגנון המוסלמי</strong><em>מים, גאומטריה וגן עדן</em></div></div>
             <div class="topic g4"><div class="tl"><strong>הגן המודרני</strong><em>קווים נקיים וצבע נועז</em></div></div>
-            <div class="topic" id="modernTile" style="background-image:url('images/lectures/modern-aalto.jpg')" onclick="openModern()" role="button" tabindex="0"><div class="tl"><strong>מקורות השראה לגן המודרני</strong><em>סגנון מודרני ומינימליזם</em><span class="lb-hint">📷 לגלריית ההרצאה</span></div></div>
+            <div class="topic modern-slides" id="modernTile" onclick="openModern()" role="button" tabindex="0"><span class="slide s1"></span><span class="slide s2"></span><div class="tl"><strong>מקורות ההשראה לגן המודרני והפוסט־מודרני</strong><em>סגנון מודרני ומינימליזם</em><span class="lb-hint">📷 לגלריית ההרצאה</span></div></div>
             <div class="topic g5"><div class="tl"><strong>הסגנון הקלאסי</strong><em>סימטריה, אבן ומים</em></div></div>
             <div class="topic" style="background-image:url('images/style-chinese.jpg')"><div class="tl"><strong>הגן הסיני</strong><em>נוף, סלע ומים בהרמוניה</em></div></div>
             <div class="topic" style="background-image:url('images/lecture-hanging.jpg')"><div class="tl"><strong>גנים תלויים</strong><em>מסורת עתיקה והשראה מודרנית</em></div></div>
@@ -536,7 +543,7 @@
 
     <div class="lightbox" id="modernLb">
         <button class="lb-close" onclick="closeModern()" aria-label="סגור">✕</button>
-        <h3>מקורות השראה לגן המודרני</h3>
+        <h3>מקורות ההשראה לגן המודרני והפוסט־מודרני</h3>
         <p class="lb-sub">סגנון מודרני ומינימליזם · אלבר אלטו</p>
         <div class="lb-grid">
             <img src="images/lectures/modern-aalto.jpg" alt="מקורות השראה — אלבר אלטו" loading="lazy">
