@@ -293,6 +293,7 @@
             <div class="proj" style="background-image:url('images/applied/applied-6.jpg')" onclick="openApplied()" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openApplied()}"><div class="pc"><strong>בית אפלייד מטריאלס</strong><span>רחובות</span><span class="lb-hint">📷 לחצו לגלריית הפרויקט</span></div></div>
             <div class="proj" style="background-image:url('images/foreign/foreign-18.jpg')" onclick="openForeign()" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openForeign()}"><div class="pc"><strong>משרד החוץ</strong><span>ירושלים</span><span class="lb-hint">📷 לחצו לגלריית הפרויקט</span></div></div>
             <div class="proj" style="background-image:url('images/squares/squares-21.jpg')" onclick="openSquares()" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openSquares()}"><div class="pc"><strong>כיכרות</strong><span>כרמי יוסף</span><span class="lb-hint">📷 לחצו לגלריית הפרויקט</span></div></div>
+            <div class="proj" style="background-image:url('images/shariv/shariv-15.jpg')" onclick="openShariv()" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openShariv()}"><div class="pc"><strong>בית שריב</strong><span>רמת השרון</span><span class="lb-hint">📷 לחצו לגלריית הפרויקט</span></div></div>
             <div class="proj p2"><div class="pc"><strong>גן נוי צבעוני</strong><span>עשבי נוי וצבעי קיץ</span></div></div>
             <div class="proj p3"><div class="pc"><strong>מטבח חוץ ואירוח</strong><span>אזור בישול בגן</span></div></div>
             <div class="proj p4"><div class="pc"><strong>אדריכלות ועיצוב</strong><span>מסגור נוף וקירות צבע</span></div></div>
@@ -696,6 +697,32 @@
         </div>
     </div>
 
+    <div class="lightbox" id="sharivLb">
+        <button class="lb-close" onclick="closeShariv()" aria-label="סגור">✕</button>
+        <h3>בית שריב</h3>
+        <p class="lb-sub">בית פרטי · רמת השרון</p>
+        <div class="lb-grid">
+            <img src="images/shariv/shariv-15.jpg" alt="בית שריב — רמת השרון" loading="lazy">
+            <img src="images/shariv/shariv-1.jpg" alt="בית שריב — רמת השרון" loading="lazy">
+            <img src="images/shariv/shariv-2.jpg" alt="בית שריב — רמת השרון" loading="lazy">
+            <img src="images/shariv/shariv-3.jpg" alt="בית שריב — רמת השרון" loading="lazy">
+            <img src="images/shariv/shariv-4.jpg" alt="בית שריב — רמת השרון" loading="lazy">
+            <img src="images/shariv/shariv-5.jpg" alt="בית שריב — רמת השרון" loading="lazy">
+            <img src="images/shariv/shariv-6.jpg" alt="בית שריב — רמת השרון" loading="lazy">
+            <img src="images/shariv/shariv-7.jpg" alt="בית שריב — רמת השרון" loading="lazy">
+            <img src="images/shariv/shariv-8.jpg" alt="בית שריב — רמת השרון" loading="lazy">
+            <img src="images/shariv/shariv-9.jpg" alt="בית שריב — רמת השרון" loading="lazy">
+            <img src="images/shariv/shariv-10.jpg" alt="בית שריב — רמת השרון" loading="lazy">
+            <img src="images/shariv/shariv-11.jpg" alt="בית שריב — רמת השרון" loading="lazy">
+            <img src="images/shariv/shariv-12.jpg" alt="בית שריב — רמת השרון" loading="lazy">
+            <img src="images/shariv/shariv-13.jpg" alt="בית שריב — רמת השרון" loading="lazy">
+            <img src="images/shariv/shariv-14.jpg" alt="בית שריב — רמת השרון" loading="lazy">
+            <img src="images/shariv/shariv-16.jpg" alt="בית שריב — רמת השרון" loading="lazy">
+            <img src="images/shariv/shariv-17.jpg" alt="בית שריב — רמת השרון" loading="lazy">
+            <img src="images/shariv/shariv-18.jpg" alt="בית שריב — רמת השרון" loading="lazy">
+        </div>
+    </div>
+
     <button class="to-top" id="toTop" aria-label="חזרה לראש העמוד" title="חזרה לראש העמוד">↑</button>
 
     <script>
@@ -735,7 +762,11 @@
         function openSquares(){ squaresLb.classList.add('open'); document.body.style.overflow = 'hidden'; }
         function closeSquares(){ squaresLb.classList.remove('open'); document.body.style.overflow = ''; }
         squaresLb.addEventListener('click', e => { if (e.target === squaresLb) closeSquares(); });
-        document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeTsook(); closeWeiss(); closeGozani(); closeApplied(); closeForeign(); closeSquares(); } });
+        const sharivLb = document.getElementById('sharivLb');
+        function openShariv(){ sharivLb.classList.add('open'); document.body.style.overflow = 'hidden'; }
+        function closeShariv(){ sharivLb.classList.remove('open'); document.body.style.overflow = ''; }
+        sharivLb.addEventListener('click', e => { if (e.target === sharivLb) closeShariv(); });
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeTsook(); closeWeiss(); closeGozani(); closeApplied(); closeForeign(); closeSquares(); closeShariv(); } });
     </script>
 </body>
 </html>
