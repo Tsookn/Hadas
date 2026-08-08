@@ -54,6 +54,12 @@
         .intro { max-width:840px; margin:0 auto; padding:104px 24px 12px; text-align:center; }
         .intro h2 { font-size:2.2em; color:var(--green-dark); margin-bottom:22px; }
         .intro p { font-size:1.18em; color:var(--muted); font-weight:300; }
+        .about { display:grid; grid-template-columns:320px 1fr; gap:52px; align-items:center; max-width:1000px; margin:0 auto; }
+        .about .about-img { width:100%; border-radius:16px; box-shadow:0 14px 36px rgba(0,0,0,.14); display:block; }
+        .about .about-text .kicker { color:var(--green-mid); font-weight:600; letter-spacing:3px; font-size:.85em; margin-bottom:12px; }
+        .about .about-text h2 { font-size:2.2em; color:var(--green-dark); margin-bottom:18px; }
+        .about .about-text p { color:var(--muted); font-weight:300; font-size:1.12em; line-height:1.75; }
+        @media (max-width:760px){ .about { grid-template-columns:1fr; gap:28px; text-align:center; } .about .about-img { max-width:280px; margin:0 auto; } }
 
         /* VISUAL NAV GRID */
         .navgrid { display:grid; grid-template-columns:repeat(auto-fit,minmax(290px,1fr)); gap:16px; max-width:1180px; margin:0 auto; }
@@ -239,6 +245,7 @@
             <li><a href="#articles">מאמרים</a></li>
             <li><a href="#lectures">הרצאות</a></li>
             <li><a href="#courses">קורסים</a></li>
+            <li><a href="#about">אודות</a></li>
             <li><a href="#contact">צרו קשר</a></li>
         </ul>
     </nav>
@@ -449,7 +456,6 @@
             <div class="topic" style="background-image:url('images/lecture-hanging.jpg')"><div class="tl"><strong>גנים תלויים</strong><em>מסורת עתיקה והשראה מודרנית</em></div></div>
             <div class="topic" style="background-image:url('images/lecture-california.jpg')"><div class="tl"><strong>קליפורניה חולמת</strong><em>בין הקלאסי לאקולוגי</em></div></div>
             <div class="topic" style="background-image:url('images/lecture-trends.jpg')"><div class="tl"><strong>מגמות עכשוויות בגינון</strong><em>כיוונים וטרנדים בעיצוב הגן</em></div></div>
-            <div class="topic" style="background-image:url('images/lecture-shrubs.jpg')"><div class="tl"><strong>מקומם של השיחים בגן הנוי</strong><em>שימושם וחשיבותם בגן הציבורי והפרטי</em></div></div>
         </div>
 
         <h3 class="lec-group">תכנון גן הנוי</h3>
@@ -459,7 +465,7 @@
             <a class="lec" href="articles/lecture-design-principles.pdf" target="_blank" rel="noopener"><strong>עקרונות בתכנון הגן</strong><span>כללי יסוד לעיצוב גן מוצלח · יום עיון</span><span class="rd">לצפייה בהרצאה ←</span></a>
             <a class="lec" href="articles/lecture-visual-effects.pdf" target="_blank" rel="noopener"><strong>אפקטים ויזואליים בעזרת צמחים</strong><span>צבע, מרקם ותנועה ליצירת עומק ומרחב</span><span class="rd">לצפייה בהרצאה ←</span></a>
             <a class="lec" href="articles/lecture-color.pdf" target="_blank" rel="noopener"><strong>צבע בגן הנוי</strong><span>שילובי צבעים והרמוניה בגן · יום עיון</span><span class="rd">לצפייה בהרצאה ←</span></a>
-            <a class="lec" href="articles/lecture-shrubs.pdf" target="_blank" rel="noopener"><strong>שיחים בגן הנוי</strong><span>מקומם וחשיבותם של השיחים בגן</span><span class="rd">לצפייה בהרצאה ←</span></a>
+            <a class="lec" href="articles/lecture-shrubs.pdf" target="_blank" rel="noopener"><strong>מקומם של השיחים בגן הנוי</strong><span>שימושם וחשיבותם בגן הציבורי והפרטי</span><span class="rd">לצפייה בהרצאה ←</span></a>
             <a class="lec" href="articles/lecture-groundcovers.pdf" target="_blank" rel="noopener"><strong>צמחי כיסוי רב־שנתיים פורחים</strong><span>כיסוי קרקע פורח וחסכוני במים</span><span class="rd">לצפייה בהרצאה ←</span></a>
             <a class="lec" href="articles/lecture-living-walls.pdf" target="_blank" rel="noopener"><strong>קירות חיים ומה שמעבר</strong><span>קירות ירוקים בגן ובמרחב הבנוי · כנס</span><span class="rd">לצפייה בהרצאה ←</span></a>
             <a class="lec" href="articles/lecture-gardens-balconies.pdf" target="_blank" rel="noopener"><strong>עיצוב גינות ומרפסות</strong><span>עקרונות עיצוב למרחבים פתוחים וקטנים</span><span class="rd">לצפייה בהרצאה ←</span></a>
@@ -488,6 +494,18 @@
             <a href="articles/garden-design-course.pdf" target="_blank" rel="noopener" class="btn">לתכנית הקורס המלאה (חוברת)</a>
         </div>
         <p class="course-note">לאורך השנים העברתי קורסים בתכנון ועיצוב הגן במוסדות אקדמיים ובארגונים מקצועיים — ביניהם תכנון הגן הפרטי, תולדות אדריכלות הנוף, יסודות התכנון וגינה חסכונית במים.</p>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+        <div class="about">
+            <img class="about-img" src="images/hadas.jpg" alt="הדס צוק" loading="lazy">
+            <div class="about-text">
+                <div class="kicker">אודות</div>
+                <h2>הדס צוק</h2>
+                <p>מתכננת גנים, יועצת ומרצה בעולם עיצוב הגן ואדריכלות הנוף. לאורך השנים תכננתי גנים פרטיים וציבוריים, ערכתי סקרי עצים מקצועיים לצורכי תכנון ורישוי, הרציתי על סגנונות גנים מרחבי העולם, העברתי קורסים בתכנון ועיצוב הגן, וכתבתי מאמרים בעיתונות המקצועית וכן טקסט לספר. האתר הזה מרכז את גוף העבודה שלי — תכנון, ידע ויצירה בעולם הגן.</p>
+            </div>
+        </div>
     </section>
 
     <!-- FOOTER -->
