@@ -128,12 +128,13 @@
 
         /* LECTURE TOPIC GRID */
         .topic-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:18px; max-width:1100px; margin:0 auto; }
-        .topic { position:relative; border-radius:12px; overflow:hidden; aspect-ratio:5/4; display:flex; align-items:flex-end; color:#fff; cursor:pointer; transition:transform .4s; background-size:cover; background-position:center; background-color:var(--green); }
+        .topic { position:relative; border-radius:12px; overflow:hidden; aspect-ratio:5/4; display:flex; align-items:flex-end; color:#fff; text-decoration:none; cursor:pointer; transition:transform .4s; background-size:cover; background-position:center; background-color:var(--green); }
         .topic:hover { transform:translateY(-4px); }
         .topic::after { content:''; position:absolute; inset:0; background:linear-gradient(180deg,transparent 35%,rgba(20,40,12,.8)); }
         .topic .tl { position:relative; z-index:1; padding:20px; }
         .topic .tl strong { display:block; font-family:'Frank Ruhl Libre',serif; font-size:1.35em; font-weight:500; }
         .topic .tl em { font-style:normal; font-size:.9em; opacity:.88; }
+        .topic .tlink { display:block; margin-top:8px; font-size:.82em; font-weight:600; color:var(--green-light); }
         .g1{background-image:url('images/style-japanese.jpg');}
         .g2{background-image:url('images/style-mediterranean.jpg');}
         .g3{background-image:url('images/style-islamic.jpg');}
@@ -148,10 +149,13 @@
         .feat h3 { font-size:2em; line-height:1.25; margin-bottom:14px; }
         .feat p { font-weight:300; opacity:.95; }
         .lec-list { display:grid; grid-template-columns:repeat(auto-fit,minmax(270px,1fr)); gap:14px; max-width:1120px; margin:44px auto 0; }
-        .lec { background:#fff; border:1px solid rgba(0,0,0,.07); border-radius:10px; padding:18px 22px; transition:transform .3s,box-shadow .3s; }
+        .lec { display:block; text-decoration:none; background:#fff; border:1px solid rgba(0,0,0,.07); border-radius:10px; padding:18px 22px; transition:transform .3s,box-shadow .3s; }
         .lec:hover { transform:translateY(-3px); box-shadow:0 8px 22px rgba(0,0,0,.07); }
         .lec strong { display:block; color:var(--green-dark); font-family:'Frank Ruhl Libre',serif; font-size:1.18em; margin-bottom:4px; }
-        .lec span { color:var(--muted); font-size:.9em; }
+        .lec span { display:block; color:var(--muted); font-size:.9em; }
+        .lec .rd { display:inline-block; margin-top:10px; color:var(--green-mid); font-size:.85em; font-weight:600; }
+        .lec-group { max-width:1120px; margin:60px auto 24px; text-align:center; font-family:'Frank Ruhl Libre',serif; font-size:1.55em; font-weight:500; color:var(--green-dark); }
+        .lec-group::after { content:''; display:block; width:56px; height:3px; background:var(--green-mid); border-radius:2px; margin:14px auto 0; }
 
         /* COURSES (SYLLABUS) */
         .courses { background:var(--green-dark); color:#fff; }
@@ -404,9 +408,11 @@
     <section class="section" id="lectures">
         <div class="section-head">
             <div class="kicker">הרצאות</div>
-            <h2>מסע בין סגנונות גנים</h2>
-            <p>הרצאות מרתקות על עולם הגן — היסטוריה, סגנונות ומקורות השראה. מותאמות לקהלים מגוונים: מועדונים, מוסדות, ימי עיון וקבוצות.</p>
+            <h2>הרצאות</h2>
+            <p>שתי סדרות הרצאות בעולם הגן — מסע בין סגנונות גנים מרחבי העולם, לצד הרצאות מקצועיות בנושא תכנון גן הנוי. מותאמות לקהלים מגוונים: מועדונים, מוסדות, ימי עיון וקבוצות. ניתן לעיין בחומרי ההרצאות ב־PDF.</p>
         </div>
+
+        <h3 class="lec-group">סדרת סגנונות · מסע בין סגנונות גנים</h3>
 
         <div class="feat">
             <div class="fc">
@@ -418,7 +424,7 @@
 
         <div class="topic-grid">
             <div class="topic g1"><div class="tl"><strong>הגן היפני</strong><em>שלווה, סמליות ואיזון</em></div></div>
-            <div class="topic g2"><div class="tl"><strong>הגן הים־תיכוני</strong><em>אקלים, ניחוח וצבע</em></div></div>
+            <a class="topic g2" href="articles/lecture-mediterranean-garden.pdf" target="_blank" rel="noopener"><div class="tl"><strong>הגן הים־תיכוני</strong><em>אקלים, ניחוח וצבע</em><span class="tlink">לצפייה בהרצאה ←</span></div></a>
             <div class="topic g3"><div class="tl"><strong>הסגנון המוסלמי</strong><em>מים, גאומטריה וגן עדן</em></div></div>
             <div class="topic g4"><div class="tl"><strong>הגן המודרני</strong><em>קווים נקיים וצבע נועז</em></div></div>
             <div class="topic g5"><div class="tl"><strong>הסגנון הקלאסי</strong><em>סימטריה, אבן ומים</em></div></div>
@@ -429,12 +435,17 @@
             <div class="topic" style="background-image:url('images/lecture-shrubs.jpg')"><div class="tl"><strong>מקומם של השיחים בגן הנוי</strong><em>שימושם וחשיבותם בגן הציבורי והפרטי</em></div></div>
         </div>
 
+        <h3 class="lec-group">תכנון גן הנוי</h3>
+
         <div class="lec-list">
-            <div class="lec"><strong>אביב בגן הישראלי</strong><span>פריחת האביב והנוף המקומי</span></div>
-            <div class="lec"><strong>מקורות השראה לגן המודרני</strong><span>סגנון מודרני ופוסט־מודרני</span></div>
-            <div class="lec"><strong>פסטיבל הגנים בצרפת</strong><span>סיור בפסטיבלים הבינלאומיים</span></div>
-            <div class="lec"><strong>תערוכת הפרחים צ'לסי</strong><span>מהתערוכה היוקרתית בלונדון</span></div>
-            <div class="lec"><strong>אפקטים ויזואליים בעזרת צמחים</strong><span>צבע, מרקם ותנועה בגן</span></div>
+            <a class="lec" href="articles/lecture-why-plan-garden.pdf" target="_blank" rel="noopener"><strong>תכנון גינה — בשביל מה?</strong><span>היתרונות שבתכנון מוקדם ומחושב של הגן</span><span class="rd">לצפייה בהרצאה ←</span></a>
+            <a class="lec" href="articles/lecture-design-principles.pdf" target="_blank" rel="noopener"><strong>עקרונות בתכנון הגן</strong><span>כללי יסוד לעיצוב גן מוצלח · יום עיון</span><span class="rd">לצפייה בהרצאה ←</span></a>
+            <a class="lec" href="articles/lecture-visual-effects.pdf" target="_blank" rel="noopener"><strong>אפקטים ויזואליים בעזרת צמחים</strong><span>צבע, מרקם ותנועה ליצירת עומק ומרחב</span><span class="rd">לצפייה בהרצאה ←</span></a>
+            <a class="lec" href="articles/lecture-color.pdf" target="_blank" rel="noopener"><strong>צבע בגן הנוי</strong><span>שילובי צבעים והרמוניה בגן · יום עיון</span><span class="rd">לצפייה בהרצאה ←</span></a>
+            <a class="lec" href="articles/lecture-shrubs.pdf" target="_blank" rel="noopener"><strong>שיחים בגן הנוי</strong><span>מקומם וחשיבותם של השיחים בגן</span><span class="rd">לצפייה בהרצאה ←</span></a>
+            <a class="lec" href="articles/lecture-groundcovers.pdf" target="_blank" rel="noopener"><strong>צמחי כיסוי רב־שנתיים פורחים</strong><span>כיסוי קרקע פורח וחסכוני במים</span><span class="rd">לצפייה בהרצאה ←</span></a>
+            <a class="lec" href="articles/lecture-living-walls.pdf" target="_blank" rel="noopener"><strong>קירות חיים ומה שמעבר</strong><span>קירות ירוקים בגן ובמרחב הבנוי · כנס</span><span class="rd">לצפייה בהרצאה ←</span></a>
+            <a class="lec" href="articles/lecture-gardens-balconies.pdf" target="_blank" rel="noopener"><strong>עיצוב גינות ומרפסות</strong><span>עקרונות עיצוב למרחבים פתוחים וקטנים</span><span class="rd">לצפייה בהרצאה ←</span></a>
         </div>
     </section>
 
