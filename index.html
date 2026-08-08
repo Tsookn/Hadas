@@ -289,6 +289,7 @@
         <div class="gallery">
             <div class="proj p1" onclick="openTsook()"><div class="pc"><strong>גן פרטי משקיף לנוף</strong><span>כרמי יוסף</span><span class="lb-hint">📷 לחצו לגלריית הפרויקט</span></div></div>
             <div class="proj" style="background-image:url('images/weiss/weiss-6.jpg')" onclick="openWeiss()" role="button" tabindex="0"><div class="pc"><strong>בית וייס</strong><span>כפר דניאל</span><span class="lb-hint">📷 לחצו לגלריית הפרויקט</span></div></div>
+            <div class="proj" style="background-image:url('images/gozani/gozani-5.jpg')" onclick="openGozani()" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openGozani()}"><div class="pc"><strong>בית גוזני</strong><span>בית פרטי בכרמי יוסף</span><span class="lb-hint">📷 לחצו לגלריית הפרויקט</span></div></div>
             <div class="proj p2"><div class="pc"><strong>גן נוי צבעוני</strong><span>עשבי נוי וצבעי קיץ</span></div></div>
             <div class="proj p3"><div class="pc"><strong>מטבח חוץ ואירוח</strong><span>אזור בישול בגן</span></div></div>
             <div class="proj p4"><div class="pc"><strong>אדריכלות ועיצוב</strong><span>מסגור נוף וקירות צבע</span></div></div>
@@ -591,6 +592,22 @@
         </div>
     </div>
 
+    <div class="lightbox" id="gozaniLb">
+        <button class="lb-close" onclick="closeGozani()" aria-label="סגור">✕</button>
+        <h3>בית גוזני</h3>
+        <p class="lb-sub">בית פרטי · כרמי יוסף</p>
+        <div class="lb-grid">
+            <img src="images/gozani/gozani-1.jpg" alt="בית גוזני — כרמי יוסף" loading="lazy">
+            <img src="images/gozani/gozani-2.jpg" alt="בית גוזני — כרמי יוסף" loading="lazy">
+            <img src="images/gozani/gozani-3.jpg" alt="בית גוזני — כרמי יוסף" loading="lazy">
+            <img src="images/gozani/gozani-4.jpg" alt="בית גוזני — כרמי יוסף" loading="lazy">
+            <img src="images/gozani/gozani-5.jpg" alt="בית גוזני — כרמי יוסף" loading="lazy">
+            <img src="images/gozani/gozani-6.jpg" alt="בית גוזני — כרמי יוסף" loading="lazy">
+            <img src="images/gozani/gozani-7.jpg" alt="בית גוזני — כרמי יוסף" loading="lazy">
+            <img src="images/gozani/gozani-8.jpg" alt="בית גוזני — כרמי יוסף" loading="lazy">
+        </div>
+    </div>
+
     <button class="to-top" id="toTop" aria-label="חזרה לראש העמוד" title="חזרה לראש העמוד">↑</button>
 
     <script>
@@ -614,7 +631,11 @@
         function closeWeiss(){ weissLb.classList.remove('open'); document.body.style.overflow = ''; }
         weissLb.addEventListener('click', e => { if (e.target === weissLb) closeWeiss(); });
         document.querySelector('.proj[tabindex]')?.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openWeiss(); } });
-        document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeTsook(); closeWeiss(); } });
+        const gozaniLb = document.getElementById('gozaniLb');
+        function openGozani(){ gozaniLb.classList.add('open'); document.body.style.overflow = 'hidden'; }
+        function closeGozani(){ gozaniLb.classList.remove('open'); document.body.style.overflow = ''; }
+        gozaniLb.addEventListener('click', e => { if (e.target === gozaniLb) closeGozani(); });
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeTsook(); closeWeiss(); closeGozani(); } });
     </script>
 </body>
 </html>
