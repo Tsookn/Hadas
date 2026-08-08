@@ -288,6 +288,7 @@
         </div>
         <div class="gallery">
             <div class="proj p1" onclick="openTsook()"><div class="pc"><strong>גן פרטי משקיף לנוף</strong><span>כרמי יוסף</span><span class="lb-hint">📷 לחצו לגלריית הפרויקט</span></div></div>
+            <div class="proj" style="background-image:url('images/weiss/weiss-1.jpg')" onclick="openWeiss()" role="button" tabindex="0"><div class="pc"><strong>בית וייס</strong><span>כפר דניאל</span><span class="lb-hint">📷 לחצו לגלריית הפרויקט</span></div></div>
             <div class="proj p2"><div class="pc"><strong>גן נוי צבעוני</strong><span>עשבי נוי וצבעי קיץ</span></div></div>
             <div class="proj p3"><div class="pc"><strong>מטבח חוץ ואירוח</strong><span>אזור בישול בגן</span></div></div>
             <div class="proj p4"><div class="pc"><strong>אדריכלות ועיצוב</strong><span>מסגור נוף וקירות צבע</span></div></div>
@@ -564,6 +565,21 @@
         </div>
     </div>
 
+    <div class="lightbox" id="weissLb">
+        <button class="lb-close" onclick="closeWeiss()" aria-label="סגור">✕</button>
+        <h3>בית וייס</h3>
+        <p class="lb-sub">גן פרטי · כפר דניאל</p>
+        <div class="lb-grid">
+            <img src="images/weiss/weiss-1.jpg" alt="בית וייס — כפר דניאל" loading="lazy">
+            <img src="images/weiss/weiss-2.jpg" alt="בית וייס — כפר דניאל" loading="lazy">
+            <img src="images/weiss/weiss-3.jpg" alt="בית וייס — כפר דניאל" loading="lazy">
+            <img src="images/weiss/weiss-4.jpg" alt="בית וייס — כפר דניאל" loading="lazy">
+            <img src="images/weiss/weiss-5.jpg" alt="בית וייס — כפר דניאל" loading="lazy">
+            <img src="images/weiss/weiss-6.jpg" alt="בית וייס — כפר דניאל" loading="lazy">
+            <img src="images/weiss/weiss-7.jpg" alt="בית וייס — כפר דניאל" loading="lazy">
+        </div>
+    </div>
+
     <button class="to-top" id="toTop" aria-label="חזרה לראש העמוד" title="חזרה לראש העמוד">↑</button>
 
     <script>
@@ -582,7 +598,12 @@
         function openTsook(){ tsookLb.classList.add('open'); document.body.style.overflow = 'hidden'; }
         function closeTsook(){ tsookLb.classList.remove('open'); document.body.style.overflow = ''; }
         tsookLb.addEventListener('click', e => { if (e.target === tsookLb) closeTsook(); });
-        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeTsook(); });
+        const weissLb = document.getElementById('weissLb');
+        function openWeiss(){ weissLb.classList.add('open'); document.body.style.overflow = 'hidden'; }
+        function closeWeiss(){ weissLb.classList.remove('open'); document.body.style.overflow = ''; }
+        weissLb.addEventListener('click', e => { if (e.target === weissLb) closeWeiss(); });
+        document.querySelector('.proj[tabindex]')?.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openWeiss(); } });
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeTsook(); closeWeiss(); } });
     </script>
 </body>
 </html>
