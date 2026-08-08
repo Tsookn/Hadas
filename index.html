@@ -291,6 +291,7 @@
             <div class="proj" style="background-image:url('images/weiss/weiss-6.jpg')" onclick="openWeiss()" role="button" tabindex="0"><div class="pc"><strong>בית וייס</strong><span>כפר דניאל</span><span class="lb-hint">📷 לחצו לגלריית הפרויקט</span></div></div>
             <div class="proj" style="background-image:url('images/gozani/gozani-5.jpg')" onclick="openGozani()" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openGozani()}"><div class="pc"><strong>בית גוזני</strong><span>בית פרטי בכרמי יוסף</span><span class="lb-hint">📷 לחצו לגלריית הפרויקט</span></div></div>
             <div class="proj" style="background-image:url('images/applied/applied-6.jpg')" onclick="openApplied()" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openApplied()}"><div class="pc"><strong>בית אפלייד מטריאלס</strong><span>רחובות</span><span class="lb-hint">📷 לחצו לגלריית הפרויקט</span></div></div>
+            <div class="proj" style="background-image:url('images/foreign/foreign-18.jpg')" onclick="openForeign()" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openForeign()}"><div class="pc"><strong>משרד החוץ</strong><span>ירושלים</span><span class="lb-hint">📷 לחצו לגלריית הפרויקט</span></div></div>
             <div class="proj p2"><div class="pc"><strong>גן נוי צבעוני</strong><span>עשבי נוי וצבעי קיץ</span></div></div>
             <div class="proj p3"><div class="pc"><strong>מטבח חוץ ואירוח</strong><span>אזור בישול בגן</span></div></div>
             <div class="proj p4"><div class="pc"><strong>אדריכלות ועיצוב</strong><span>מסגור נוף וקירות צבע</span></div></div>
@@ -632,6 +633,33 @@
         </div>
     </div>
 
+    <div class="lightbox" id="foreignLb">
+        <button class="lb-close" onclick="closeForeign()" aria-label="סגור">✕</button>
+        <h3>משרד החוץ</h3>
+        <p class="lb-sub">מבנה ציבורי · ירושלים</p>
+        <div class="lb-grid">
+            <img src="images/foreign/foreign-18.jpg" alt="משרד החוץ — ירושלים" loading="lazy">
+            <img src="images/foreign/foreign-1.jpg" alt="משרד החוץ — ירושלים" loading="lazy">
+            <img src="images/foreign/foreign-2.jpg" alt="משרד החוץ — ירושלים" loading="lazy">
+            <img src="images/foreign/foreign-3.jpg" alt="משרד החוץ — ירושלים" loading="lazy">
+            <img src="images/foreign/foreign-4.jpg" alt="משרד החוץ — ירושלים" loading="lazy">
+            <img src="images/foreign/foreign-5.jpg" alt="משרד החוץ — ירושלים" loading="lazy">
+            <img src="images/foreign/foreign-6.jpg" alt="משרד החוץ — ירושלים" loading="lazy">
+            <img src="images/foreign/foreign-7.jpg" alt="משרד החוץ — ירושלים" loading="lazy">
+            <img src="images/foreign/foreign-8.jpg" alt="משרד החוץ — ירושלים" loading="lazy">
+            <img src="images/foreign/foreign-9.jpg" alt="משרד החוץ — ירושלים" loading="lazy">
+            <img src="images/foreign/foreign-10.jpg" alt="משרד החוץ — ירושלים" loading="lazy">
+            <img src="images/foreign/foreign-11.jpg" alt="משרד החוץ — ירושלים" loading="lazy">
+            <img src="images/foreign/foreign-12.jpg" alt="משרד החוץ — ירושלים" loading="lazy">
+            <img src="images/foreign/foreign-13.jpg" alt="משרד החוץ — ירושלים" loading="lazy">
+            <img src="images/foreign/foreign-14.jpg" alt="משרד החוץ — ירושלים" loading="lazy">
+            <img src="images/foreign/foreign-15.jpg" alt="משרד החוץ — ירושלים" loading="lazy">
+            <img src="images/foreign/foreign-16.jpg" alt="משרד החוץ — ירושלים" loading="lazy">
+            <img src="images/foreign/foreign-17.jpg" alt="משרד החוץ — ירושלים" loading="lazy">
+            <img src="images/foreign/foreign-19.jpg" alt="משרד החוץ — ירושלים" loading="lazy">
+        </div>
+    </div>
+
     <button class="to-top" id="toTop" aria-label="חזרה לראש העמוד" title="חזרה לראש העמוד">↑</button>
 
     <script>
@@ -663,7 +691,11 @@
         function openApplied(){ appliedLb.classList.add('open'); document.body.style.overflow = 'hidden'; }
         function closeApplied(){ appliedLb.classList.remove('open'); document.body.style.overflow = ''; }
         appliedLb.addEventListener('click', e => { if (e.target === appliedLb) closeApplied(); });
-        document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeTsook(); closeWeiss(); closeGozani(); closeApplied(); } });
+        const foreignLb = document.getElementById('foreignLb');
+        function openForeign(){ foreignLb.classList.add('open'); document.body.style.overflow = 'hidden'; }
+        function closeForeign(){ foreignLb.classList.remove('open'); document.body.style.overflow = ''; }
+        foreignLb.addEventListener('click', e => { if (e.target === foreignLb) closeForeign(); });
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeTsook(); closeWeiss(); closeGozani(); closeApplied(); closeForeign(); } });
     </script>
 </body>
 </html>
