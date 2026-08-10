@@ -294,6 +294,7 @@
             <div class="proj" style="background-image:url('images/foreign/foreign-18.jpg')" onclick="openForeign()" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openForeign()}"><div class="pc"><strong>משרד החוץ</strong><span>ירושלים</span><span class="lb-hint">📷 לחצו לגלריית הפרויקט</span></div></div>
             <div class="proj" style="background-image:url('images/squares/squares-21.jpg')" onclick="openSquares()" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openSquares()}"><div class="pc"><strong>כיכרות</strong><span>כרמי יוסף</span><span class="lb-hint">📷 לחצו לגלריית הפרויקט</span></div></div>
             <div class="proj" style="background-image:url('images/shariv/shariv-15.jpg')" onclick="openShariv()" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openShariv()}"><div class="pc"><strong>בית שריב</strong><span>רמת השרון</span><span class="lb-hint">📷 לחצו לגלריית הפרויקט</span></div></div>
+            <div class="proj" style="background-image:url('images/sidi/sidi-4.jpg')" onclick="openSidi()" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openSidi()}"><div class="pc"><strong>בית סידי</strong><span>כרמי יוסף</span><span class="lb-hint">📷 לחצו לגלריית הפרויקט</span></div></div>
             <div class="proj p2"><div class="pc"><strong>גן נוי צבעוני</strong><span>עשבי נוי וצבעי קיץ</span></div></div>
             <div class="proj p3"><div class="pc"><strong>מטבח חוץ ואירוח</strong><span>אזור בישול בגן</span></div></div>
             <div class="proj p4"><div class="pc"><strong>אדריכלות ועיצוב</strong><span>מסגור נוף וקירות צבע</span></div></div>
@@ -739,6 +740,19 @@
         </div>
     </div>
 
+    <div class="lightbox" id="sidiLb">
+        <button class="lb-close" onclick="closeSidi()" aria-label="סגור">✕</button>
+        <h3>בית סידי</h3>
+        <p class="lb-sub">בית פרטי · כרמי יוסף</p>
+        <div class="lb-grid">
+            <img src="images/sidi/sidi-4.jpg" alt="בית סידי — כרמי יוסף" loading="lazy">
+            <img src="images/sidi/sidi-5.jpg" alt="בית סידי — כרמי יוסף" loading="lazy">
+            <img src="images/sidi/sidi-1.jpg" alt="בית סידי — כרמי יוסף (הקמה)" loading="lazy">
+            <img src="images/sidi/sidi-2.jpg" alt="בית סידי — כרמי יוסף (הקמה)" loading="lazy">
+            <img src="images/sidi/sidi-3.jpg" alt="תוכנית שתילה — בית סידי, כרמי יוסף" loading="lazy">
+        </div>
+    </div>
+
     <button class="to-top" id="toTop" aria-label="חזרה לראש העמוד" title="חזרה לראש העמוד">↑</button>
 
     <script>
@@ -782,7 +796,11 @@
         function openShariv(){ sharivLb.classList.add('open'); document.body.style.overflow = 'hidden'; }
         function closeShariv(){ sharivLb.classList.remove('open'); document.body.style.overflow = ''; }
         sharivLb.addEventListener('click', e => { if (e.target === sharivLb) closeShariv(); });
-        document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeTsook(); closeWeiss(); closeGozani(); closeApplied(); closeForeign(); closeSquares(); closeShariv(); } });
+        const sidiLb = document.getElementById('sidiLb');
+        function openSidi(){ sidiLb.classList.add('open'); document.body.style.overflow = 'hidden'; }
+        function closeSidi(){ sidiLb.classList.remove('open'); document.body.style.overflow = ''; }
+        sidiLb.addEventListener('click', e => { if (e.target === sidiLb) closeSidi(); });
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeTsook(); closeWeiss(); closeGozani(); closeApplied(); closeForeign(); closeSquares(); closeShariv(); closeSidi(); } });
     </script>
 </body>
 </html>
