@@ -295,6 +295,7 @@
             <div class="proj" style="background-image:url('images/squares/squares-21.jpg')" onclick="openSquares()" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openSquares()}"><div class="pc"><strong>כיכרות</strong><span>כרמי יוסף</span><span class="lb-hint">📷 לחצו לגלריית הפרויקט</span></div></div>
             <div class="proj" style="background-image:url('images/shariv/shariv-15.jpg')" onclick="openShariv()" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openShariv()}"><div class="pc"><strong>בית שריב</strong><span>רמת השרון</span><span class="lb-hint">📷 לחצו לגלריית הפרויקט</span></div></div>
             <div class="proj" style="background-image:url('images/sidi/sidi-4.jpg')" onclick="openSidi()" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openSidi()}"><div class="pc"><strong>בית סידי</strong><span>כרמי יוסף</span><span class="lb-hint">📷 לחצו לגלריית הפרויקט</span></div></div>
+            <div class="proj" style="background-image:url('images/yavne/yavne-2.jpg')" onclick="openYavne()" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openYavne()}"><div class="pc"><strong>טיילת גן יבנה</strong><span>גינון ציבורי</span><span class="lb-hint">📷 לחצו לגלריית הפרויקט</span></div></div>
             <div class="proj p2"><div class="pc"><strong>גן נוי צבעוני</strong><span>עשבי נוי וצבעי קיץ</span></div></div>
             <div class="proj p3"><div class="pc"><strong>מטבח חוץ ואירוח</strong><span>אזור בישול בגן</span></div></div>
             <div class="proj p4"><div class="pc"><strong>אדריכלות ועיצוב</strong><span>מסגור נוף וקירות צבע</span></div></div>
@@ -753,6 +754,18 @@
         </div>
     </div>
 
+    <div class="lightbox" id="yavneLb">
+        <button class="lb-close" onclick="closeYavne()" aria-label="סגור">✕</button>
+        <h3>טיילת גן יבנה</h3>
+        <p class="lb-sub">גינון ציבורי · גן יבנה</p>
+        <div class="lb-grid">
+            <img src="images/yavne/yavne-2.jpg" alt="טיילת גן יבנה — אלמנט אבן" loading="lazy">
+            <img src="images/yavne/yavne-3.jpg" alt="טיילת גן יבנה" loading="lazy">
+            <img src="images/yavne/yavne-1.jpg" alt="טיילת גן יבנה" loading="lazy">
+            <img src="images/yavne/yavne-4.jpg" alt="טיילת גן יבנה" loading="lazy">
+        </div>
+    </div>
+
     <button class="to-top" id="toTop" aria-label="חזרה לראש העמוד" title="חזרה לראש העמוד">↑</button>
 
     <script>
@@ -800,7 +813,11 @@
         function openSidi(){ sidiLb.classList.add('open'); document.body.style.overflow = 'hidden'; }
         function closeSidi(){ sidiLb.classList.remove('open'); document.body.style.overflow = ''; }
         sidiLb.addEventListener('click', e => { if (e.target === sidiLb) closeSidi(); });
-        document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeTsook(); closeWeiss(); closeGozani(); closeApplied(); closeForeign(); closeSquares(); closeShariv(); closeSidi(); } });
+        const yavneLb = document.getElementById('yavneLb');
+        function openYavne(){ yavneLb.classList.add('open'); document.body.style.overflow = 'hidden'; }
+        function closeYavne(){ yavneLb.classList.remove('open'); document.body.style.overflow = ''; }
+        yavneLb.addEventListener('click', e => { if (e.target === yavneLb) closeYavne(); });
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeTsook(); closeWeiss(); closeGozani(); closeApplied(); closeForeign(); closeSquares(); closeShariv(); closeSidi(); closeYavne(); } });
     </script>
 </body>
 </html>
