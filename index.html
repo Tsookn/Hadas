@@ -299,6 +299,8 @@
             <div class="proj" style="background-image:url('images/shusiov/shusiov-5.jpg')" onclick="openShusiov()" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openShusiov()}"><div class="pc"><strong>בית שוסיוב</strong><span>כרמי יוסף</span><span class="lb-hint">📷 לחצו לגלריית הפרויקט</span></div></div>
             <div class="proj" style="background-image:url('images/synagogue/synagogue-2.jpg')" onclick="openSynagogue()" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openSynagogue()}"><div class="pc"><strong>בית כנסת "עץ החיים"</strong><span>בית שמש</span><span class="lb-hint">📷 לחצו לגלריית הפרויקט</span></div></div>
             <div class="proj" style="background-image:url('images/agron/agron-2.jpg')" onclick="openAgron()" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openAgron()}"><div class="pc"><strong>בית אגרון</strong><span>רמת השרון</span><span class="lb-hint">📷 לחצו לגלריית הפרויקט</span></div></div>
+            <div class="proj" style="background-image:url('images/shapira/shapira-1.jpg')" onclick="openShapira()" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openShapira()}"><div class="pc"><strong>בית שפירא</strong><span>כרמי יוסף</span><span class="lb-hint">📷 לחצו לגלריית הפרויקט</span></div></div>
+            <div class="proj" style="background-image:url('images/kronengold/kronengold-3.jpg')" onclick="openKronengold()" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openKronengold()}"><div class="pc"><strong>בית קרוננגולד</strong><span>רחובות</span><span class="lb-hint">📷 לחצו לגלריית הפרויקט</span></div></div>
         </div>
 
         <h3 class="lec-group">מקומות מעוררי השראה</h3>
@@ -880,6 +882,37 @@
         </div>
     </div>
 
+    <div class="lightbox" id="shapiraLb">
+        <button class="lb-close" onclick="closeShapira()" aria-label="סגור">✕</button>
+        <h3>בית שפירא</h3>
+        <p class="lb-sub">בית פרטי · כרמי יוסף</p>
+        <div class="lb-grid">
+            <img src="images/shapira/shapira-1.jpg" alt="בית שפירא — כרמי יוסף" loading="lazy">
+            <img src="images/shapira/shapira-2.jpg" alt="בית שפירא — כרמי יוסף" loading="lazy">
+            <img src="images/shapira/shapira-3.jpg" alt="בית שפירא — כרמי יוסף" loading="lazy">
+            <img src="images/shapira/shapira-6.jpg" alt="בית שפירא — כרמי יוסף" loading="lazy">
+            <img src="images/shapira/shapira-7.jpg" alt="בית שפירא — כרמי יוסף" loading="lazy">
+            <img src="images/shapira/shapira-8.jpg" alt="בית שפירא — כרמי יוסף" loading="lazy">
+            <img src="images/shapira/shapira-9.jpg" alt="בית שפירא — כרמי יוסף" loading="lazy">
+            <img src="images/shapira/shapira-10.jpg" alt="בית שפירא — כרמי יוסף" loading="lazy">
+            <img src="images/shapira/shapira-4.jpg" alt="בית שפירא — כרמי יוסף" loading="lazy">
+            <img src="images/shapira/shapira-5.jpg" alt="בית שפירא — כרמי יוסף" loading="lazy">
+        </div>
+    </div>
+
+    <div class="lightbox" id="kronengoldLb">
+        <button class="lb-close" onclick="closeKronengold()" aria-label="סגור">✕</button>
+        <h3>בית קרוננגולד</h3>
+        <p class="lb-sub">בית פרטי · רחובות</p>
+        <div class="lb-grid">
+            <img src="images/kronengold/kronengold-3.jpg" alt="בית קרוננגולד — רחובות" loading="lazy">
+            <img src="images/kronengold/kronengold-1.jpg" alt="בית קרוננגולד — רחובות" loading="lazy">
+            <img src="images/kronengold/kronengold-2.jpg" alt="בית קרוננגולד — רחובות" loading="lazy">
+            <img src="images/kronengold/kronengold-4.jpg" alt="בית קרוננגולד — רחובות" loading="lazy">
+            <img src="images/kronengold/kronengold-5.jpg" alt="בית קרוננגולד — רחובות" loading="lazy">
+        </div>
+    </div>
+
     <button class="to-top" id="toTop" aria-label="חזרה לראש העמוד" title="חזרה לראש העמוד">↑</button>
 
     <script>
@@ -947,7 +980,15 @@
         function openAppeltern(){ appelternLb.classList.add('open'); document.body.style.overflow = 'hidden'; }
         function closeAppeltern(){ appelternLb.classList.remove('open'); document.body.style.overflow = ''; }
         appelternLb.addEventListener('click', e => { if (e.target === appelternLb) closeAppeltern(); });
-        document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeTsook(); closeWeiss(); closeGozani(); closeApplied(); closeForeign(); closeSquares(); closeShariv(); closeSidi(); closeYavne(); closeShusiov(); closeSynagogue(); closeAgron(); closeAppeltern(); } });
+        const shapiraLb = document.getElementById('shapiraLb');
+        function openShapira(){ shapiraLb.classList.add('open'); document.body.style.overflow = 'hidden'; }
+        function closeShapira(){ shapiraLb.classList.remove('open'); document.body.style.overflow = ''; }
+        shapiraLb.addEventListener('click', e => { if (e.target === shapiraLb) closeShapira(); });
+        const kronengoldLb = document.getElementById('kronengoldLb');
+        function openKronengold(){ kronengoldLb.classList.add('open'); document.body.style.overflow = 'hidden'; }
+        function closeKronengold(){ kronengoldLb.classList.remove('open'); document.body.style.overflow = ''; }
+        kronengoldLb.addEventListener('click', e => { if (e.target === kronengoldLb) closeKronengold(); });
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeTsook(); closeWeiss(); closeGozani(); closeApplied(); closeForeign(); closeSquares(); closeShariv(); closeSidi(); closeYavne(); closeShusiov(); closeSynagogue(); closeAgron(); closeAppeltern(); closeShapira(); closeKronengold(); } });
     </script>
 </body>
 </html>
