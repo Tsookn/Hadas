@@ -297,6 +297,7 @@
             <div class="proj" style="background-image:url('images/sidi/sidi-4.jpg')" onclick="openSidi()" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openSidi()}"><div class="pc"><strong>בית סידי</strong><span>כרמי יוסף</span><span class="lb-hint">📷 לחצו לגלריית הפרויקט</span></div></div>
             <div class="proj" style="background-image:url('images/yavne/yavne-2.jpg')" onclick="openYavne()" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openYavne()}"><div class="pc"><strong>טיילת גן יבנה</strong><span>גינון ציבורי</span><span class="lb-hint">📷 לחצו לגלריית הפרויקט</span></div></div>
             <div class="proj" style="background-image:url('images/shusiov/shusiov-5.jpg')" onclick="openShusiov()" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openShusiov()}"><div class="pc"><strong>בית שוסיוב</strong><span>כרמי יוסף</span><span class="lb-hint">📷 לחצו לגלריית הפרויקט</span></div></div>
+            <div class="proj" style="background-image:url('images/synagogue/synagogue-2.jpg')" onclick="openSynagogue()" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openSynagogue()}"><div class="pc"><strong>בית כנסת עץ החיים</strong><span>בית שמש</span><span class="lb-hint">📷 לחצו לגלריית הפרויקט</span></div></div>
             <div class="proj p2"><div class="pc"><strong>גן נוי צבעוני</strong><span>עשבי נוי וצבעי קיץ</span></div></div>
             <div class="proj p3"><div class="pc"><strong>מטבח חוץ ואירוח</strong><span>אזור בישול בגן</span></div></div>
             <div class="proj p4"><div class="pc"><strong>אדריכלות ועיצוב</strong><span>מסגור נוף וקירות צבע</span></div></div>
@@ -786,6 +787,26 @@
         </div>
     </div>
 
+    <div class="lightbox" id="synagogueLb">
+        <button class="lb-close" onclick="closeSynagogue()" aria-label="סגור">✕</button>
+        <h3>בית כנסת עץ החיים</h3>
+        <p class="lb-sub">פיתוח וגינון · בית שמש</p>
+        <div class="lb-grid">
+            <img src="images/synagogue/synagogue-2.jpg" alt="בית כנסת עץ החיים — בית שמש" loading="lazy">
+            <img src="images/synagogue/synagogue-4.jpg" alt="בית כנסת עץ החיים — בית שמש" loading="lazy">
+            <img src="images/synagogue/synagogue-6.jpg" alt="בית כנסת עץ החיים — בית שמש" loading="lazy">
+            <img src="images/synagogue/synagogue-1.jpg" alt="בית כנסת עץ החיים — בית שמש" loading="lazy">
+            <img src="images/synagogue/synagogue-3.jpg" alt="בית כנסת עץ החיים — בית שמש" loading="lazy">
+            <img src="images/synagogue/synagogue-5.jpg" alt="בית כנסת עץ החיים — בית שמש" loading="lazy">
+            <img src="images/synagogue/synagogue-7.jpg" alt="בית כנסת עץ החיים — בית שמש" loading="lazy">
+            <img src="images/synagogue/synagogue-8.jpg" alt="בית כנסת עץ החיים — בית שמש" loading="lazy">
+            <img src="images/synagogue/synagogue-9.jpg" alt="בית כנסת עץ החיים — בית שמש" loading="lazy">
+            <img src="images/synagogue/synagogue-10.jpg" alt="בית כנסת עץ החיים — בית שמש" loading="lazy">
+            <img src="images/synagogue/synagogue-11.jpg" alt="בית כנסת עץ החיים — בית שמש" loading="lazy">
+            <img src="images/synagogue/synagogue-12.jpg" alt="בית כנסת עץ החיים — בית שמש" loading="lazy">
+        </div>
+    </div>
+
     <button class="to-top" id="toTop" aria-label="חזרה לראש העמוד" title="חזרה לראש העמוד">↑</button>
 
     <script>
@@ -841,7 +862,11 @@
         function openShusiov(){ shusiovLb.classList.add('open'); document.body.style.overflow = 'hidden'; }
         function closeShusiov(){ shusiovLb.classList.remove('open'); document.body.style.overflow = ''; }
         shusiovLb.addEventListener('click', e => { if (e.target === shusiovLb) closeShusiov(); });
-        document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeTsook(); closeWeiss(); closeGozani(); closeApplied(); closeForeign(); closeSquares(); closeShariv(); closeSidi(); closeYavne(); closeShusiov(); } });
+        const synagogueLb = document.getElementById('synagogueLb');
+        function openSynagogue(){ synagogueLb.classList.add('open'); document.body.style.overflow = 'hidden'; }
+        function closeSynagogue(){ synagogueLb.classList.remove('open'); document.body.style.overflow = ''; }
+        synagogueLb.addEventListener('click', e => { if (e.target === synagogueLb) closeSynagogue(); });
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeTsook(); closeWeiss(); closeGozani(); closeApplied(); closeForeign(); closeSquares(); closeShariv(); closeSidi(); closeYavne(); closeShusiov(); closeSynagogue(); } });
     </script>
 </body>
 </html>
