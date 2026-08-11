@@ -298,6 +298,7 @@
             <div class="proj" style="background-image:url('images/yavne/yavne-2.jpg')" onclick="openYavne()" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openYavne()}"><div class="pc"><strong>טיילת גן יבנה</strong><span>גינון ציבורי</span><span class="lb-hint">📷 לחצו לגלריית הפרויקט</span></div></div>
             <div class="proj" style="background-image:url('images/shusiov/shusiov-5.jpg')" onclick="openShusiov()" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openShusiov()}"><div class="pc"><strong>בית שוסיוב</strong><span>כרמי יוסף</span><span class="lb-hint">📷 לחצו לגלריית הפרויקט</span></div></div>
             <div class="proj" style="background-image:url('images/synagogue/synagogue-2.jpg')" onclick="openSynagogue()" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openSynagogue()}"><div class="pc"><strong>בית כנסת "עץ החיים"</strong><span>בית שמש</span><span class="lb-hint">📷 לחצו לגלריית הפרויקט</span></div></div>
+            <div class="proj" style="background-image:url('images/agron/agron-4.jpg')" onclick="openAgron()" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openAgron()}"><div class="pc"><strong>בית אגרון</strong><span>רמת השרון</span><span class="lb-hint">📷 לחצו לגלריית הפרויקט</span></div></div>
         </div>
 
         <h3 class="lec-group">מקומות מעוררי השראה</h3>
@@ -812,6 +813,22 @@
         </div>
     </div>
 
+    <div class="lightbox" id="agronLb">
+        <button class="lb-close" onclick="closeAgron()" aria-label="סגור">✕</button>
+        <h3>בית אגרון</h3>
+        <p class="lb-sub">בית פרטי · רמת השרון</p>
+        <div class="lb-grid">
+            <img src="images/agron/agron-4.jpg" alt="בית אגרון — רמת השרון" loading="lazy">
+            <img src="images/agron/agron-2.jpg" alt="בית אגרון — רמת השרון" loading="lazy">
+            <img src="images/agron/agron-3.jpg" alt="בית אגרון — רמת השרון" loading="lazy">
+            <img src="images/agron/agron-5.jpg" alt="בית אגרון — רמת השרון" loading="lazy">
+            <img src="images/agron/agron-6.jpg" alt="בית אגרון — רמת השרון" loading="lazy">
+            <img src="images/agron/agron-7.jpg" alt="בית אגרון — רמת השרון" loading="lazy">
+            <img src="images/agron/agron-8.jpg" alt="בית אגרון — רמת השרון" loading="lazy">
+            <img src="images/agron/agron-1.jpg" alt="בית אגרון — רמת השרון (הקמה)" loading="lazy">
+        </div>
+    </div>
+
     <button class="to-top" id="toTop" aria-label="חזרה לראש העמוד" title="חזרה לראש העמוד">↑</button>
 
     <script>
@@ -871,7 +888,11 @@
         function openSynagogue(){ synagogueLb.classList.add('open'); document.body.style.overflow = 'hidden'; }
         function closeSynagogue(){ synagogueLb.classList.remove('open'); document.body.style.overflow = ''; }
         synagogueLb.addEventListener('click', e => { if (e.target === synagogueLb) closeSynagogue(); });
-        document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeTsook(); closeWeiss(); closeGozani(); closeApplied(); closeForeign(); closeSquares(); closeShariv(); closeSidi(); closeYavne(); closeShusiov(); closeSynagogue(); } });
+        const agronLb = document.getElementById('agronLb');
+        function openAgron(){ agronLb.classList.add('open'); document.body.style.overflow = 'hidden'; }
+        function closeAgron(){ agronLb.classList.remove('open'); document.body.style.overflow = ''; }
+        agronLb.addEventListener('click', e => { if (e.target === agronLb) closeAgron(); });
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeTsook(); closeWeiss(); closeGozani(); closeApplied(); closeForeign(); closeSquares(); closeShariv(); closeSidi(); closeYavne(); closeShusiov(); closeSynagogue(); closeAgron(); } });
     </script>
 </body>
 </html>
