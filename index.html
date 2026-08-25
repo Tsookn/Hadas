@@ -179,6 +179,14 @@
         .modern-slides .topic-links a:hover { text-decoration:underline; }
         @keyframes modernSlides { 0%{opacity:0} 3%{opacity:1} 30%{opacity:1} 36%{opacity:0} 100%{opacity:0} }
         @media (prefers-reduced-motion:reduce) { .modern-slides .slide { animation:none; } .modern-slides .s1 { opacity:1; } }
+        .cal-slides .slide { position:absolute; inset:0; background-size:cover; background-position:center; opacity:0; z-index:0; animation:calSlides 12s infinite; }
+        .cal-slides .cs1 { background-image:url('images/getty-villa.jpg'); animation-delay:0s; }
+        .cal-slides .cs2 { background-image:url('images/getty-california.jpg'); animation-delay:4s; }
+        .cal-slides .cs3 { background-image:url('images/eco-california.jpg'); animation-delay:8s; }
+        .cal-slides::after { z-index:1; }
+        .cal-slides .tl { z-index:2; }
+        @keyframes calSlides { 0%{opacity:0} 3%{opacity:1} 30%{opacity:1} 36%{opacity:0} 100%{opacity:0} }
+        @media (prefers-reduced-motion:reduce) { .cal-slides .slide { animation:none; } .cal-slides .cs1 { opacity:1; } }
         .g1{background-image:url('images/style-japanese.jpg');}
         .g2{background-image:url('images/style-mediterranean.jpg');}
         .g3{background-image:url('images/style-islamic.jpg');}
@@ -500,7 +508,7 @@
             <a class="topic" style="background-image:url('images/style-english.jpg')" href="articles/english-gardens.pdf" target="_blank" rel="noopener"><div class="tl"><strong>גנים אנגליים</strong><em>מתנועת הנוף במאה ה־18 ועד ימינו</em><span class="tlink">לצפייה בהרצאה ←</span></div></a>
             <div class="topic" style="background-image:url('images/style-chinese.jpg')"><div class="tl"><strong>הגן הסיני</strong><em>נוף, סלע ומים בהרמוניה</em></div></div>
             <div class="topic" style="background-image:url('images/lecture-hanging.jpg')"><div class="tl"><strong>גנים תלויים</strong><em>מסורת עתיקה והשראה מודרנית</em></div></div>
-            <a class="topic" style="background-image:url('images/lecture-california.jpg')" href="articles/california-gardens.pdf" target="_blank" rel="noopener"><div class="tl"><strong>קליפורניה חולמת</strong><em>בין הקלאסי לאקולוגי</em><span class="tlink">לצפייה בהרצאה ←</span></div></a>
+            <a class="topic cal-slides" href="articles/california-gardens.pdf" target="_blank" rel="noopener"><span class="slide cs1"></span><span class="slide cs2"></span><span class="slide cs3"></span><div class="tl"><strong>קליפורניה חולמת</strong><em>בין הקלאסי לאקולוגי</em><span class="tlink">לצפייה בהרצאה ←</span></div></a>
             <div class="topic" style="background-image:url('images/lecture-trends.jpg')"><div class="tl"><strong>מגמות עכשוויות בגינון</strong><em>כיוונים וטרנדים בעיצוב הגן</em></div></div>
         </div>
 
