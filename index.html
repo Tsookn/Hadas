@@ -328,6 +328,8 @@
             <div class="proj" style="background-image:url('images/shapira/shapira-1.jpg')" onclick="openShapira()" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openShapira()}"><div class="pc"><strong>בית שפירא</strong><span>כרמי יוסף</span><span class="lb-hint">📷 לחצו לגלריית הפרויקט</span></div></div>
             <div class="proj" style="background-image:url('images/kronengold/kronengold-3.jpg')" onclick="openKronengold()" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openKronengold()}"><div class="pc"><strong>בית קרוננגולד</strong><span>רחובות</span><span class="lb-hint">📷 לחצו לגלריית הפרויקט</span></div></div>
             <div class="proj" style="background-image:url('images/uriel/uriel-22.jpg')" onclick="openUriel()" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openUriel()}"><div class="pc"><strong>בית אוריאל</strong><span>בית עוזיאל</span><span class="lb-hint">📷 לחצו לגלריית הפרויקט</span></div></div>
+            <div class="proj" style="background-image:url('images/gelman/gelman-1.jpg')" onclick="openGelman()" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openGelman()}"><div class="pc"><strong>בית גלמן</strong><span>כרמי יוסף</span><span class="lb-hint">📷 לחצו לגלריית הפרויקט</span></div></div>
+            <div class="proj" style="background-image:url('images/ritzufim/ritzufim-4.jpg')" onclick="openRitzufim()" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openRitzufim()}"><div class="pc"><strong>ריצופים</strong><span>משטחים ושבילים בגן</span><span class="lb-hint">📷 לחצו לגלריית הפרויקט</span></div></div>
         </div>
 
         <h3 class="lec-group">מקומות מעוררי השראה</h3>
@@ -984,6 +986,28 @@
         </div>
     </div>
 
+    <div class="lightbox" id="gelmanLb">
+        <button class="lb-close" onclick="closeGelman()" aria-label="סגור">✕</button>
+        <h3>בית גלמן</h3>
+        <p class="lb-sub">בית פרטי · כרמי יוסף</p>
+        <div class="lb-grid">
+            <img src="images/gelman/gelman-1.jpg" alt="בית גלמן — כרמי יוסף" loading="lazy">
+        </div>
+    </div>
+
+    <div class="lightbox" id="ritzufimLb">
+        <button class="lb-close" onclick="closeRitzufim()" aria-label="סגור">✕</button>
+        <h3>ריצופים</h3>
+        <p class="lb-sub">משטחים, שבילים ופתרונות ריצוף בגן</p>
+        <div class="lb-grid">
+            <img src="images/ritzufim/ritzufim-4.jpg" alt="ריצופים בגן" loading="lazy">
+            <img src="images/ritzufim/ritzufim-1.jpg" alt="ריצופים בגן" loading="lazy">
+            <img src="images/ritzufim/ritzufim-2.jpg" alt="ריצופים בגן" loading="lazy">
+            <img src="images/ritzufim/ritzufim-3.jpg" alt="ריצופים בגן" loading="lazy">
+            <img src="images/ritzufim/ritzufim-5.jpg" alt="ריצופים בגן" loading="lazy">
+        </div>
+    </div>
+
     <button class="to-top" id="toTop" aria-label="חזרה לראש העמוד" title="חזרה לראש העמוד">↑</button>
 
     <script>
@@ -1063,7 +1087,15 @@
         function openUriel(){ urielLb.classList.add('open'); document.body.style.overflow = 'hidden'; }
         function closeUriel(){ urielLb.classList.remove('open'); document.body.style.overflow = ''; }
         urielLb.addEventListener('click', e => { if (e.target === urielLb) closeUriel(); });
-        document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeTsook(); closeWeiss(); closeGozani(); closeApplied(); closeForeign(); closeSquares(); closeShariv(); closeSidi(); closeYavne(); closeShusiov(); closeSynagogue(); closeAgron(); closeAppeltern(); closeShapira(); closeKronengold(); closeUriel(); } });
+        const gelmanLb = document.getElementById('gelmanLb');
+        function openGelman(){ gelmanLb.classList.add('open'); document.body.style.overflow = 'hidden'; }
+        function closeGelman(){ gelmanLb.classList.remove('open'); document.body.style.overflow = ''; }
+        gelmanLb.addEventListener('click', e => { if (e.target === gelmanLb) closeGelman(); });
+        const ritzufimLb = document.getElementById('ritzufimLb');
+        function openRitzufim(){ ritzufimLb.classList.add('open'); document.body.style.overflow = 'hidden'; }
+        function closeRitzufim(){ ritzufimLb.classList.remove('open'); document.body.style.overflow = ''; }
+        ritzufimLb.addEventListener('click', e => { if (e.target === ritzufimLb) closeRitzufim(); });
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeTsook(); closeWeiss(); closeGozani(); closeApplied(); closeForeign(); closeSquares(); closeShariv(); closeSidi(); closeYavne(); closeShusiov(); closeSynagogue(); closeAgron(); closeAppeltern(); closeShapira(); closeKronengold(); closeUriel(); closeGelman(); closeRitzufim(); } });
     </script>
 </body>
 </html>
