@@ -249,7 +249,12 @@
         .lightbox h3 { color:#fff; text-align:center; font-size:1.9em; margin-bottom:6px; }
         .lightbox .lb-sub { color:var(--green-light); text-align:center; margin-bottom:30px; font-weight:300; }
         .lb-grid { column-count:3; column-gap:14px; max-width:1100px; margin:0 auto; }
-        .lb-grid img { width:100%; margin-bottom:14px; border-radius:10px; display:block; break-inside:avoid; }
+        .lb-grid img { width:100%; margin-bottom:14px; border-radius:10px; display:block; break-inside:avoid; cursor:zoom-in; transition:filter .2s; }
+        .lb-grid img:hover { filter:brightness(1.06); }
+        .img-zoom { position:fixed; inset:0; z-index:400; background:rgba(8,16,6,.96); display:none; align-items:center; justify-content:center; padding:4vh 4vw; cursor:zoom-out; }
+        .img-zoom.open { display:flex; }
+        .img-zoom img { max-width:100%; max-height:92vh; width:auto; height:auto; border-radius:8px; box-shadow:0 20px 60px rgba(0,0,0,.5); }
+        .img-zoom .lb-close { z-index:401; }
         .lb-close { position:fixed; top:18px; left:22px; z-index:301; background:rgba(255,255,255,.16); color:#fff; border:none; width:46px; height:46px; border-radius:50%; font-size:1.4em; line-height:1; cursor:pointer; transition:background .3s; }
         .lb-close:hover { background:rgba(255,255,255,.32); }
         @media (max-width:820px){ .lb-grid{column-count:2;} }
@@ -1082,6 +1087,11 @@
         </div>
     </div>
 
+    <div class="img-zoom" id="imgZoom">
+        <button class="lb-close" onclick="closeZoom()" aria-label="סגור">✕</button>
+        <img src="" alt="תצוגה מוגדלת">
+    </div>
+
     <button class="to-top" id="toTop" aria-label="חזרה לראש העמוד" title="חזרה לראש העמוד">↑</button>
 
     <script>
@@ -1181,7 +1191,15 @@
         function openBook(){ bookLb.classList.add('open'); document.body.style.overflow = 'hidden'; }
         function closeBook(){ bookLb.classList.remove('open'); document.body.style.overflow = ''; }
         bookLb.addEventListener('click', e => { if (e.target === bookLb) closeBook(); });
-        document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeTsook(); closeWeiss(); closeGozani(); closeApplied(); closeForeign(); closeSquares(); closeShariv(); closeSidi(); closeYavne(); closeShusiov(); closeSynagogue(); closeAgron(); closeAppeltern(); closeShapira(); closeKronengold(); closeUriel(); closeGelman(); closeRitzufim(); closeArt(); closeTongva(); closeBook(); } });
+        const imgZoom = document.getElementById('imgZoom');
+        const imgZoomImg = imgZoom.querySelector('img');
+        function openZoom(src, alt){ imgZoomImg.src = src; imgZoomImg.alt = alt || 'תצוגה מוגדלת'; imgZoom.classList.add('open'); }
+        function closeZoom(){ imgZoom.classList.remove('open'); imgZoomImg.src = ''; }
+        imgZoom.addEventListener('click', e => { if (e.target !== imgZoom.querySelector('.lb-close')) closeZoom(); });
+        document.querySelectorAll('.lb-grid img').forEach(img => {
+            img.addEventListener('click', e => { e.stopPropagation(); openZoom(img.currentSrc || img.src, img.alt); });
+        });
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') { if (imgZoom.classList.contains('open')) { closeZoom(); return; } closeTsook(); closeWeiss(); closeGozani(); closeApplied(); closeForeign(); closeSquares(); closeShariv(); closeSidi(); closeYavne(); closeShusiov(); closeSynagogue(); closeAgron(); closeAppeltern(); closeShapira(); closeKronengold(); closeUriel(); closeGelman(); closeRitzufim(); closeArt(); closeTongva(); closeBook(); } });
     </script>
 </body>
 </html>
