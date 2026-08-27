@@ -151,8 +151,12 @@
 
         /* BOOK */
         .book { display:grid; grid-template-columns:260px 1fr; gap:46px; align-items:center; max-width:1000px; margin:0 auto; background:#fff; border-radius:16px; overflow:hidden; box-shadow:0 10px 36px rgba(0,0,0,.08); }
-        .book-cover { display:flex; align-items:center; justify-content:center; }
-        .book-cover img { width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:6px; box-shadow:0 10px 28px rgba(0,0,0,.2); }
+        .book-cover { display:flex; flex-direction:column; align-items:center; justify-content:center; }
+        .book-cover img { width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:6px; box-shadow:0 10px 28px rgba(0,0,0,.2); transition:transform .25s, box-shadow .25s; }
+        .book-gate { cursor:pointer; }
+        .book-gate:hover img, .book-gate:focus-visible img { transform:translateY(-4px); box-shadow:0 16px 36px rgba(0,0,0,.28); }
+        .book-gate:focus-visible { outline:2px solid var(--green-mid); outline-offset:4px; border-radius:8px; }
+        .book-gate .lb-hint { color:var(--green); font-weight:600; }
         .book-info { padding:40px 40px 40px 0; }
         .book-info .kicker { color:var(--green-mid); font-weight:600; letter-spacing:3px; font-size:.85em; margin-bottom:12px; }
         .book-info h3 { font-size:1.8em; color:var(--green-dark); margin-bottom:16px; }
@@ -468,14 +472,16 @@
             <p>השתתפתי בכתיבה המקצועית של ספר עיצוב הגנים "בין הגינה לבית".</p>
         </div>
         <div class="book">
-            <div class="book-cover">
+            <div class="book-cover book-gate" onclick="openBook()" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openBook();}" aria-label="לצפייה בתמונות מתוך הספר">
                 <img src="images/book-cover.jpg" alt="כריכת הספר 'בין הגינה לבית' מאת אורלי רובינזון">
+                <span class="lb-hint">לצפייה בתמונות מתוך הספר ←</span>
             </div>
             <div class="book-info">
                 <div class="kicker">כתיבה מקצועית</div>
                 <h3>בין הגינה לבית</h3>
                 <p>ספרה של אורלי רובינזון בהוצאת מודן (2008) — תיעוד מרהיב של עשרות גנים מעוצבים בארץ, סגנונות ופתרונות עיצוב לחיבור שבין הבית לגינה. <strong>השתתפתי בכתיבה המקצועית של הספר</strong>; הטקסטים שכתבתי שולבו בפרקים השונים — ביניהם פרק הפתיחה על הגינה הביתית, "אזורי הגן" ו"מרכיבי הגן".</p>
                 <a href="articles/garden-components.pdf" target="_blank" rel="noopener" class="text-link">לקריאת הטקסט הגולמי "גן הנוי להנאה ולתועלת" ←</a>
+                <a href="#book" onclick="openBook();return false;" class="text-link">לצפייה ב־5 תמונות מתוך הספר ←</a>
             </div>
         </div>
     </section>
@@ -1063,6 +1069,19 @@
         </div>
     </div>
 
+    <div class="lightbox" id="bookLb">
+        <button class="lb-close" onclick="closeBook()" aria-label="סגור">✕</button>
+        <h3>מתוך הספר "בין הגינה לבית"</h3>
+        <p class="lb-sub">עמודים מהספר — טקסטים שכתבתי בפרקים השונים</p>
+        <div class="lb-grid">
+            <img src="images/book/book-1.jpg" alt="עמוד מתוך הספר 'בין הגינה לבית'" loading="lazy">
+            <img src="images/book/book-2.jpg" alt="עמוד מתוך הספר 'בין הגינה לבית'" loading="lazy">
+            <img src="images/book/book-3.jpg" alt="עמוד מתוך הספר 'בין הגינה לבית'" loading="lazy">
+            <img src="images/book/book-4.jpg" alt="עמוד מתוך הספר 'בין הגינה לבית'" loading="lazy">
+            <img src="images/book/book-5.jpg" alt="עמוד מתוך הספר 'בין הגינה לבית'" loading="lazy">
+        </div>
+    </div>
+
     <button class="to-top" id="toTop" aria-label="חזרה לראש העמוד" title="חזרה לראש העמוד">↑</button>
 
     <script>
@@ -1158,7 +1177,11 @@
         function openTongva(){ tongvaLb.classList.add('open'); document.body.style.overflow = 'hidden'; }
         function closeTongva(){ tongvaLb.classList.remove('open'); document.body.style.overflow = ''; }
         tongvaLb.addEventListener('click', e => { if (e.target === tongvaLb) closeTongva(); });
-        document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeTsook(); closeWeiss(); closeGozani(); closeApplied(); closeForeign(); closeSquares(); closeShariv(); closeSidi(); closeYavne(); closeShusiov(); closeSynagogue(); closeAgron(); closeAppeltern(); closeShapira(); closeKronengold(); closeUriel(); closeGelman(); closeRitzufim(); closeArt(); closeTongva(); } });
+        const bookLb = document.getElementById('bookLb');
+        function openBook(){ bookLb.classList.add('open'); document.body.style.overflow = 'hidden'; }
+        function closeBook(){ bookLb.classList.remove('open'); document.body.style.overflow = ''; }
+        bookLb.addEventListener('click', e => { if (e.target === bookLb) closeBook(); });
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeTsook(); closeWeiss(); closeGozani(); closeApplied(); closeForeign(); closeSquares(); closeShariv(); closeSidi(); closeYavne(); closeShusiov(); closeSynagogue(); closeAgron(); closeAppeltern(); closeShapira(); closeKronengold(); closeUriel(); closeGelman(); closeRitzufim(); closeArt(); closeTongva(); closeBook(); } });
     </script>
 </body>
 </html>
